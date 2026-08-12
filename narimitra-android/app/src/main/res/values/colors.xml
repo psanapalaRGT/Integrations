@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Page background of the prototype (deep navy behind the phone frame). -->
+    <color name="narimitra_navy">#0F1233</color>
+    <!-- Brand turmeric-pink used by the logo tile. -->
+    <color name="ic_launcher_background">#E8397B</color>
+</resources>

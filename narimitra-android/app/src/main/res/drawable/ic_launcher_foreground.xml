@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kolam mark from the NariMitra masthead: four petal strokes, a dotted
+     ring (drawn solid at low alpha — vectors have no dash support), and
+     four dots. Art is authored on the original 48-unit grid, centered in
+     the 108dp adaptive-icon canvas. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:translateX="30"
+        android:translateY="30">
+        <path
+            android:pathData="M24,12c-5,6 -5,12 0,18"
+            android:strokeColor="#232B66"
+            android:strokeWidth="2"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M24,12c5,6 5,12 0,18"
+            android:strokeColor="#232B66"
+            android:strokeWidth="2"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M12,24c6,-5 12,-5 18,0"
+            android:strokeColor="#232B66"
+            android:strokeWidth="2"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M36,24c-6,5 -12,5 -18,0"
+            android:strokeColor="#232B66"
+            android:strokeWidth="2"
+            android:strokeLineCap="round" />
+        <path
+            android:pathData="M11.5,24a12.5,12.5 0 1,0 25,0a12.5,12.5 0 1,0 -25,0"
+            android:strokeAlpha="0.45"
+            android:strokeColor="#232B66"
+            android:strokeWidth="1.4" />
+        <path
+            android:fillColor="#232B66"
+            android:pathData="M21.7,12a2.3,2.3 0 1,0 4.6,0a2.3,2.3 0 1,0 -4.6,0" />
+        <path
+            android:fillColor="#232B66"
+            android:pathData="M33.7,24a2.3,2.3 0 1,0 4.6,0a2.3,2.3 0 1,0 -4.6,0" />
+        <path
+            android:fillColor="#232B66"
+            android:pathData="M21.7,36a2.3,2.3 0 1,0 4.6,0a2.3,2.3 0 1,0 -4.6,0" />
+        <path
+            android:fillColor="#232B66"
+            android:pathData="M9.7,24a2.3,2.3 0 1,0 4.6,0a2.3,2.3 0 1,0 -4.6,0" />
+    </group>
+</vector>

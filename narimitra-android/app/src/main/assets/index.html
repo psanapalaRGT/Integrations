@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NariMitra — App Screens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Hanken+Grotesk:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   SAHACHARI — she who walks alongside
+   Pooled household intelligence for Indian cities
+
+   plum      #232B66  brand, chrome
+   chalk     #FBF8F3  surface
+   turmeric  #E8397B  action, prices
+   leaf      #0F7A4F  fresh, verified, saving
+   rose      #C6295E  urgency, offers
+   rust      #B45309  ageing confidence
+   ink       #1E1712  text
+
+   Two motifs, each carrying information:
+   1. Kolam dot grid. Dots are households, the line is the pool.
+   2. Three rings. Building, area, city. How far a fact travelled.
+   ============================================================ */
+
+:root{
+  --plum:#232B66; --plum-2:#3A44A0; --plum-3:#5560C4;
+  --chalk:#FBF8F3; --card:#FFFFFF;
+  --turmeric:#E8397B; --turmeric-d:#B81E5B;
+  --leaf:#0F7A4F; --rose:#C6295E; --rust:#B45309;
+  --ink:#1E1712; --mute:#6E6570; --line:#EAE3DC;
+  --shadow:0 1px 2px rgba(30,23,18,.05), 0 8px 24px -12px rgba(35,43,102,.18);
+
+  --c-buy:#9B1E6B; --c-beautify:#C6295E; --c-stitch:#8A5A12; --c-home:#0B6E75;
+  --c-family:#26456E; --c-health:#0F7A4F; --c-save:#C98307; --c-celebrate:#7A2E9B;
+  --c-learn:#4F6B1F; --c-convenience:#1F5FA8;
+
+  --ff-display:"Rozha One","Playfair Display",Georgia,serif;
+  --ff-body:"Hanken Grotesk",-apple-system,"Segoe UI",system-ui,sans-serif;
+  --ff-mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:var(--ff-body);
+  background:radial-gradient(1200px 700px at 12% -10%,#2A3480 0,transparent 62%),
+             radial-gradient(900px 600px at 100% 100%,#161B4A 0,transparent 60%),#0F1233;
+  color:var(--ink); min-height:100vh; padding:34px 22px 60px;
+}
+.wrap{max-width:1240px;margin:0 auto;}
+.masthead{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px;}
+.mark{display:flex;align-items:center;gap:13px;}
+.mark h1{font-family:var(--ff-display);font-weight:400;color:#fff;font-size:44px;line-height:.9;margin:0;letter-spacing:.01em;}
+.mark p{margin:6px 0 0;color:#B9C0EE;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;}
+.masthead .note{color:#AEB6EA;font-size:13.5px;line-height:1.6;max-width:440px;margin:0 0 4px auto;text-align:right;}
+.masthead .note b{color:var(--turmeric);font-weight:700;}
+
+.stage{display:grid;grid-template-columns:250px 1fr;gap:34px;align-items:start;}
+.rail{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);border-radius:18px;
+  padding:16px 12px;position:sticky;top:34px;backdrop-filter:blur(6px);}
+.rail h2{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#A9B2E8;margin:4px 10px 12px;font-weight:700;}
+.rail .grp{font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:#7A84C6;margin:16px 10px 7px;font-weight:700;}
+.rail button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;
+  color:#DFE3F9;font-family:var(--ff-body);font-size:13px;font-weight:500;padding:8px 10px;border-radius:9px;cursor:pointer;}
+.rail button .n{font-family:var(--ff-mono);font-size:10.5px;color:#828CCF;width:19px;flex:none;}
+.rail button:hover{background:rgba(255,255,255,.08);}
+.rail button.on{background:var(--turmeric);color:#fff;font-weight:700;}
+.rail button.on .n{color:#F9C7DB;}
+.rail button:focus-visible{outline:2px solid var(--turmeric);outline-offset:2px;}
+.rail .new{margin-left:auto;font-size:8.5px;letter-spacing:.08em;background:rgba(232,57,123,.22);color:var(--turmeric);
+  padding:2px 5px;border-radius:4px;font-weight:800;}
+.rail button.on .new{background:rgba(255,255,255,.25);color:#fff;}
+
+.phonewrap{display:flex;justify-content:center;padding-top:4px;}
+.phone{width:392px;height:824px;flex:none;position:relative;background:#0A0D26;border-radius:52px;padding:11px;
+  box-shadow:0 0 0 2px #2B3268,0 40px 90px -30px rgba(0,0,0,.85),0 0 60px -20px rgba(232,57,123,.16);}
+.glass{position:absolute;inset:11px;border-radius:42px;overflow:hidden;background:var(--chalk);display:flex;flex-direction:column;}
+.notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:116px;height:27px;background:#0A0D26;border-radius:0 0 17px 17px;z-index:60;}
+.sysbar{flex:none;height:46px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 5px;
+  font-family:var(--ff-mono);font-size:12.5px;font-weight:500;z-index:55;position:relative;}
+.sysbar .icons{display:flex;align-items:center;gap:5px;}
+
+.screen{display:none;flex:1;min-height:0;flex-direction:column;}
+.screen.on{display:flex;}
+.scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;}
+.scroll::-webkit-scrollbar{display:none;}
+.pad{padding:0 20px;} .gap{height:18px;} .gap-s{height:11px;} .gap-l{height:30px;}
+
+.topbar{flex:none;background:var(--plum);color:#fff;padding:6px 18px 16px;position:relative;overflow:hidden;}
+.topbar .kolam{position:absolute;inset:0;opacity:.16;pointer-events:none;}
+.topbar-row{display:flex;align-items:center;gap:12px;position:relative;}
+.backbtn{width:34px;height:34px;flex:none;border-radius:11px;border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.09);color:#fff;display:grid;place-items:center;cursor:pointer;}
+.backbtn:focus-visible{outline:2px solid var(--turmeric);outline-offset:2px;}
+.topbar h2{font-family:var(--ff-display);font-weight:400;font-size:26px;margin:0;line-height:1.15;letter-spacing:.01em;}
+.topbar .sub{font-size:12px;color:#C9CFF2;margin:3px 0 0;font-weight:500;}
+
+.eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--mute);margin:0 0 9px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);}
+.spread{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.mono{font-family:var(--ff-mono);}
+
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:99px;white-space:nowrap;}
+.pill.leaf{background:#E4F3EC;color:var(--leaf);} .pill.rose{background:#FBE7EE;color:var(--rose);}
+.pill.turm{background:#FCE2EE;color:var(--turmeric-d);} .pill.plum{background:#E8EBF9;color:var(--plum-2);}
+.pill.ghost{background:#F3EFEA;color:var(--mute);} .pill.rust{background:#FBEDDD;color:var(--rust);}
+
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 20px;scrollbar-width:none;}
+.chips::-webkit-scrollbar{display:none;}
+.chip{flex:none;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:99px;border:1px solid var(--line);
+  background:#fff;color:var(--ink);cursor:pointer;font-family:var(--ff-body);}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+.chip:focus-visible{outline:2px solid var(--turmeric);outline-offset:2px;}
+
+.btn{font-family:var(--ff-body);font-weight:700;font-size:14px;border:0;border-radius:13px;padding:13px 18px;
+  cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
+.btn.primary{background:var(--turmeric);color:#FFFFFF;}
+.btn.dark{background:var(--plum);color:#fff;}
+.btn.out{background:#fff;border:1.5px solid var(--line);color:var(--ink);}
+.btn.full{width:100%;}
+.btn:focus-visible{outline:2px solid var(--plum);outline-offset:2px;}
+
+/* ---------- SIGNATURE 1: freshness meter ---------- */
+.fresh{display:flex;align-items:center;gap:8px;margin-top:8px;}
+.fresh .bars{display:flex;gap:2px;flex:none;}
+.fresh .bars i{width:12px;height:4px;border-radius:2px;background:#E7E1DA;display:block;}
+.fresh.hi .bars i:nth-child(-n+5){background:var(--leaf);}
+.fresh.md .bars i:nth-child(-n+3){background:#C98307;}
+.fresh.lo .bars i:nth-child(-n+2){background:var(--rust);}
+.fresh span{font-size:10.5px;color:var(--mute);font-weight:600;line-height:1.35;}
+.fresh b{font-weight:800;}
+.fresh.hi b{color:var(--leaf);} .fresh.md b{color:#C98307;} .fresh.lo b{color:var(--rust);}
+
+/* ---------- SIGNATURE 2: rings ---------- */
+.rings{display:flex;background:#F2EDE6;border-radius:12px;padding:3px;gap:2px;}
+.ring{flex:1;border:0;background:none;border-radius:9px;padding:8px 4px;cursor:pointer;font-family:var(--ff-body);
+  display:flex;flex-direction:column;align-items:center;gap:3px;}
+.ring .rl{font-size:11.5px;font-weight:700;color:var(--mute);}
+.ring .rn{font-family:var(--ff-mono);font-size:9.5px;color:#A79FA9;}
+.ring.on{background:#fff;box-shadow:0 1px 3px rgba(30,23,18,.12);}
+.ring.on .rl{color:var(--plum);} .ring.on .rn{color:var(--plum-3);}
+.ring:focus-visible{outline:2px solid var(--plum);outline-offset:2px;}
+
+/* ---------- listings ---------- */
+.item{width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;
+  margin-bottom:10px;cursor:pointer;font-family:var(--ff-body);display:flex;gap:12px;box-shadow:var(--shadow);}
+.item:focus-visible{outline:2px solid var(--plum);outline-offset:2px;}
+.thumb{width:52px;height:52px;flex:none;border-radius:13px;display:grid;place-items:center;
+  font-family:var(--ff-display);font-size:22px;color:#fff;}
+.item .bd{flex:1;min-width:0;}
+.item .t{font-weight:700;font-size:14.5px;line-height:1.28;margin:0;letter-spacing:-.01em;display:block;}
+.item .m{font-size:11.5px;color:var(--mute);margin:3px 0 0;line-height:1.45;}
+.item .pr{display:flex;align-items:baseline;gap:7px;margin-top:7px;flex-wrap:wrap;}
+.item .pr .now{font-family:var(--ff-mono);font-weight:500;font-size:14.5px;}
+.item .pr .was{font-family:var(--ff-mono);font-size:11.5px;color:#A79FA9;text-decoration:line-through;}
+.item .foot{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);display:block;}
+
+.rate{background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 13px;box-shadow:var(--shadow);}
+.rate .lbl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--mute);font-weight:800;}
+.rate .val{font-family:var(--ff-mono);font-size:19px;font-weight:500;margin-top:4px;letter-spacing:-.02em;}
+.rate .dlt{font-size:11px;font-weight:700;margin-top:2px;}
+.rate .up{color:var(--rose);} .rate .down{color:var(--leaf);}
+.ratestrip{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+/* ---------- home ---------- */
+.homehead{background:var(--plum);color:#fff;padding:2px 20px 20px;position:relative;overflow:hidden;flex:none;}
+.homehead .kolam{position:absolute;inset:0;opacity:.15;}
+.homehead .inner{position:relative;}
+.cityline{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);
+  border-radius:99px;padding:6px 12px;font-size:12.5px;font-weight:700;cursor:pointer;color:#fff;font-family:var(--ff-body);}
+.greet{font-family:var(--ff-display);font-size:29px;margin:15px 0 3px;line-height:1.12;font-weight:400;}
+.greet-sub{font-size:12.5px;color:#C9CFF2;margin:0 0 15px;line-height:1.5;}
+.search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:12px 14px;box-shadow:var(--shadow);}
+.search input{border:0;outline:0;font-family:var(--ff-body);font-size:14.5px;width:100%;color:var(--ink);background:none;}
+.search input::placeholder{color:#A79FA9;}
+.micbtn{width:30px;height:30px;flex:none;border-radius:9px;border:0;background:#E8EBF9;display:grid;place-items:center;cursor:pointer;}
+
+.ticker{margin:0 20px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 13px;
+  display:flex;gap:11px;align-items:center;box-shadow:var(--shadow);position:relative;top:-12px;}
+.ticker .live{width:8px;height:8px;border-radius:99px;background:var(--rose);flex:none;
+  box-shadow:0 0 0 0 rgba(198,41,94,.5);animation:ping 2s infinite;}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(198,41,94,0);}100%{box-shadow:0 0 0 0 rgba(198,41,94,0);}}
+.ticker p{margin:0;font-size:12px;line-height:1.45;}
+
+.catgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.cat{text-align:left;background:#fff;border:1px solid var(--line);border-radius:17px;padding:14px 13px 13px;
+  cursor:pointer;font-family:var(--ff-body);box-shadow:var(--shadow);}
+.cat:focus-visible{outline:2px solid var(--plum);outline-offset:2px;}
+.cat .ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;margin-bottom:11px;
+  background:color-mix(in srgb,var(--tint) 12%,#fff);}
+.cat .ico svg{stroke:var(--tint);}
+.cat .nm{display:block;font-weight:700;font-size:14.5px;line-height:1.25;letter-spacing:-.01em;}
+.cat .ds{display:block;font-size:11px;color:var(--mute);margin-top:4px;line-height:1.4;min-height:31px;}
+.cat .ct{display:inline-block;margin-top:9px;font-family:var(--ff-mono);font-size:10px;color:var(--tint);
+  background:color-mix(in srgb,var(--tint) 9%,#fff);padding:3px 7px;border-radius:6px;}
+
+/* ---------- promise band: the anti-JustDial ---------- */
+.promise{background:#0E3B2A;border-radius:17px;padding:15px 16px;color:#fff;position:relative;overflow:hidden;}
+.promise .kolam{position:absolute;inset:0;opacity:.13;}
+.promise .in{position:relative;}
+.promise h3{font-family:var(--ff-display);font-weight:400;font-size:19px;margin:0 0 9px;}
+.promise .l{display:flex;gap:9px;align-items:flex-start;padding:6px 0;}
+.promise .l p{margin:0;font-size:12px;color:#C4E4D4;line-height:1.45;}
+.promise .l b{color:#fff;font-weight:700;}
+
+.groupbuy{background:linear-gradient(150deg,#232B66,#7A2E9B);color:#fff;border-radius:17px;padding:16px;position:relative;overflow:hidden;}
+.groupbuy .kolam{position:absolute;inset:0;opacity:.2;}
+.groupbuy .in{position:relative;}
+.groupbuy h3{font-family:var(--ff-display);font-weight:400;font-size:21px;margin:0 0 4px;}
+.groupbuy p{margin:0;font-size:12.5px;color:#D5DAF6;line-height:1.5;}
+.bar{height:7px;border-radius:99px;background:rgba(255,255,255,.2);margin:13px 0 7px;overflow:hidden;}
+.bar i{display:block;height:100%;background:var(--turmeric);border-radius:99px;}
+.faces{display:flex;margin-top:12px;}
+.faces span{width:27px;height:27px;border-radius:99px;margin-left:-8px;border:2px solid #2A3480;display:grid;
+  place-items:center;font-size:10.5px;font-weight:800;color:#FFFFFF;background:var(--turmeric);}
+.faces span:first-child{margin-left:0;}
+.faces span.n{background:rgba(255,255,255,.22);color:#fff;}
+
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.slot{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 6px;text-align:center;cursor:pointer;font-family:var(--ff-body);}
+.slot .h{font-family:var(--ff-mono);font-size:12.5px;font-weight:500;}
+.slot .s{font-size:9.5px;color:var(--leaf);font-weight:700;margin-top:2px;}
+.slot.off{background:#F5F1EC;color:#B2AAB4;cursor:not-allowed;} .slot.off .s{color:#B2AAB4;}
+.slot.on{background:var(--ink);color:#fff;border-color:var(--ink);} .slot.on .s{color:var(--turmeric);}
+.slot:focus-visible{outline:2px solid var(--plum);outline-offset:2px;}
+
+.alertbox{background:#FDF0D6;border:1px solid #F3DCA8;border-radius:14px;padding:12px 13px;display:flex;gap:10px;}
+.alertbox p{margin:0;font-size:12px;line-height:1.5;color:#6B4A03;}
+.alertbox b{font-weight:800;}
+
+/* ---------- detail ---------- */
+.hero{height:176px;position:relative;display:flex;align-items:flex-end;padding:16px 20px;color:#fff;overflow:hidden;}
+.hero .kolam{position:absolute;inset:0;opacity:.22;}
+.hero .in{position:relative;}
+.hero h2{font-family:var(--ff-display);font-weight:400;font-size:28px;margin:8px 0 3px;line-height:1.12;}
+.hero p{margin:0;font-size:12.5px;opacity:.88;}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 10px;text-align:center;}
+.stat .v{font-family:var(--ff-mono);font-size:17px;font-weight:500;}
+.stat .l{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:800;margin-top:3px;}
+.timeline{border-left:2px solid var(--line);margin-left:5px;padding-left:16px;}
+.tl{position:relative;padding-bottom:15px;}
+.tl::before{content:"";position:absolute;left:-22px;top:4px;width:9px;height:9px;border-radius:99px;background:var(--plum-3);border:2px solid var(--chalk);}
+.tl:first-child::before{background:var(--turmeric);}
+.tl .w{font-size:12.5px;font-weight:700;margin:0;} .tl .x{font-size:11.5px;color:var(--mute);margin:2px 0 0;line-height:1.5;}
+.stickybar{flex:none;padding:12px 20px 14px;background:#fff;border-top:1px solid var(--line);display:flex;gap:10px;}
+
+/* ---------- ranking explainer ---------- */
+.score{display:flex;align-items:center;gap:14px;padding:14px;}
+.dial{width:74px;height:74px;flex:none;position:relative;}
+.dial svg{transform:rotate(-90deg);}
+.dial .v{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--ff-mono);font-size:19px;font-weight:500;}
+.factor{padding:11px 0;border-bottom:1px solid var(--line);}
+.factor .fh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+.factor .fn{font-size:13px;font-weight:700;}
+.factor .fv{font-family:var(--ff-mono);font-size:12px;color:var(--plum-2);}
+.factor .fd{font-size:11.5px;color:var(--mute);margin:3px 0 7px;line-height:1.5;}
+.mini{height:5px;border-radius:99px;background:#F0EBE5;overflow:hidden;}
+.mini i{display:block;height:100%;border-radius:99px;background:var(--plum-3);}
+
+/* ---------- circle ---------- */
+.ringart{display:grid;place-items:center;padding:6px 0 14px;}
+.hood{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid var(--line);}
+.hood .av{width:34px;height:34px;flex:none;border-radius:11px;background:#E8EBF9;display:grid;place-items:center;
+  font-weight:800;font-size:13px;color:var(--plum-2);}
+
+/* ---------- safety ---------- */
+.toggle{width:44px;height:26px;border-radius:99px;background:#DCD5CE;position:relative;flex:none;border:0;cursor:pointer;transition:.2s;}
+.toggle i{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:99px;background:#fff;transition:.2s;
+  box-shadow:0 1px 3px rgba(0,0,0,.2);display:block;}
+.toggle.on{background:var(--leaf);} .toggle.on i{left:21px;}
+.toggle:focus-visible{outline:2px solid var(--plum);outline-offset:2px;}
+.listrow{display:flex;align-items:center;gap:12px;padding:14px 4px;border:0;border-bottom:1px solid var(--line);
+  width:100%;text-align:left;font-family:var(--ff-body);background:none;cursor:pointer;}
+.listrow .t{font-size:14px;font-weight:600;display:block;}
+.listrow .s{font-size:11.5px;color:var(--mute);margin-top:2px;display:block;line-height:1.45;}
+
+/* ---------- contribute ---------- */
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--mute);margin-bottom:6px;}
+.field input,.field textarea{width:100%;font-family:var(--ff-body);font-size:14px;padding:12px 13px;border:1px solid var(--line);
+  border-radius:13px;background:#fff;color:var(--ink);outline:0;}
+.field textarea{resize:none;height:82px;line-height:1.5;}
+.field input:focus,.field textarea:focus{border-color:var(--plum);box-shadow:0 0 0 3px rgba(35,43,102,.09);}
+.picker{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.pick{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px;font-size:12.5px;font-weight:600;
+  cursor:pointer;font-family:var(--ff-body);text-align:left;display:flex;align-items:center;gap:8px;}
+.pick.on{border-color:var(--plum);background:#EEF0FB;color:var(--plum);}
+.pick:focus-visible{outline:2px solid var(--plum);outline-offset:2px;}
+.voicebtn{width:100%;border:1.5px dashed #C9CFF3;background:#F2F4FC;border-radius:14px;padding:18px;cursor:pointer;
+  font-family:var(--ff-body);display:flex;align-items:center;gap:13px;text-align:left;}
+.wave{display:flex;align-items:center;gap:2.5px;height:26px;}
+.wave i{width:3px;border-radius:2px;background:var(--plum-3);display:block;animation:w 1s infinite ease-in-out;}
+@keyframes w{0%,100%{height:6px;}50%{height:22px;}}
+
+.avatar{width:62px;height:62px;border-radius:20px;background:var(--turmeric);display:grid;place-items:center;
+  font-family:var(--ff-display);font-size:27px;color:#FFFFFF;}
+
+.tabbar{flex:none;display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--line);padding:9px 6px 22px;}
+.tab{background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;
+  font-family:var(--ff-body);font-size:9.5px;font-weight:700;color:#A79FA9;padding:3px 0;}
+.tab svg{stroke:#A79FA9;}
+.tab.on{color:var(--plum);} .tab.on svg{stroke:var(--plum);}
+.tab.mid .bub{width:40px;height:34px;margin-top:-13px;border-radius:13px;background:var(--turmeric);display:grid;
+  place-items:center;box-shadow:0 6px 14px -5px rgba(232,57,123,.75);}
+.tab.mid .bub svg{stroke:#FFFFFF;}
+.tab:focus-visible{outline:2px solid var(--plum);outline-offset:2px;border-radius:8px;}
+
+.toast{position:absolute;left:20px;right:20px;bottom:96px;background:var(--ink);color:#fff;border-radius:14px;
+  padding:13px 15px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:10px;z-index:80;
+  opacity:0;transform:translateY(10px);pointer-events:none;transition:.28s;}
+.toast.on{opacity:1;transform:none;}
+
+/* ---------- splash ---------- */
+#s-splash .glasspad{flex:1;background:linear-gradient(168deg,#2A3480 0,#161B4A 100%);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.splash-kolam{position:absolute;width:346px;height:346px;opacity:.5;}
+.splash-kolam path{stroke-dasharray:320;stroke-dashoffset:320;animation:draw 2.4s ease-out forwards;}
+.splash-kolam circle{opacity:0;animation:pop .5s ease-out forwards;}
+@keyframes draw{to{stroke-dashoffset:0;}} @keyframes pop{to{opacity:1;}}
+.splash-mark{position:relative;text-align:center;z-index:2;}
+.splash-mark h1{font-family:var(--ff-display);font-weight:400;color:#fff;font-size:56px;margin:0;letter-spacing:.02em;animation:rise .8s .5s both;}
+.splash-mark .tag{color:var(--turmeric);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-top:8px;animation:rise .8s .75s both;}
+.splash-mark .line{color:#AEB6EA;font-size:13.5px;margin-top:22px;line-height:1.6;animation:rise .8s .95s both;}
+@keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.splash-foot{position:absolute;bottom:38px;width:100%;padding:0 30px;z-index:2;animation:rise .8s 1.2s both;}
+
+.citygrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.city{text-align:left;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;cursor:pointer;
+  font-family:var(--ff-body);position:relative;overflow:hidden;}
+.city:focus-visible{outline:2px solid var(--plum);outline-offset:2px;}
+.city .nm{font-weight:700;font-size:14.5px;display:block;}
+.city .st{font-size:11px;color:var(--mute);display:block;margin-top:1px;}
+.city .ct{font-family:var(--ff-mono);font-size:10.5px;color:var(--plum-2);margin-top:9px;display:block;}
+.city.on{border-color:var(--plum);box-shadow:0 0 0 2px rgba(35,43,102,.14);}
+.city.on::after{content:"";position:absolute;top:11px;right:11px;width:9px;height:9px;border-radius:99px;background:var(--turmeric);}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+  .splash-kolam path{stroke-dashoffset:0;} .splash-kolam circle{opacity:1;}
+}
+@media (max-width:1060px){
+  body{padding:22px 14px 40px;}
+  .stage{grid-template-columns:1fr;}
+  .rail{position:static;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:2px;}
+  .rail h2,.rail .grp{grid-column:1/-1;}
+  .masthead .note{text-align:left;margin-left:0;}
+}
+@media (max-width:440px){
+  .phone{width:100%;height:min(760px,88vh);border-radius:38px;padding:8px;}
+  .glass{inset:8px;border-radius:30px;}
+  .mark h1{font-size:33px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="mark">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="14" fill="#E8397B"/>
+        <g stroke="#232B66" stroke-width="1.7" fill="none">
+          <path d="M24 12c-5 6-5 12 0 18M24 12c5 6 5 12 0 18"/>
+          <path d="M12 24c6-5 12-5 18 0M36 24c-6 5-12 5-18 0"/>
+          <circle cx="24" cy="24" r="12.5" stroke-dasharray="3 4" opacity=".55"/>
+        </g>
+        <circle cx="24" cy="12" r="2.3" fill="#232B66"/><circle cx="36" cy="24" r="2.3" fill="#232B66"/>
+        <circle cx="24" cy="36" r="2.3" fill="#232B66"/><circle cx="12" cy="24" r="2.3" fill="#232B66"/>
+      </svg>
+      <div><h1>NariMitra</h1><p>21 screens · mobile</p></div>
+    </div>
+    <p class="note">A friend to every woman. Directories sell your number, marketplaces only carry the workers they employ. NariMitra holds the part neither can: <b>what your neighbours actually paid, and how fresh that fact still is.</b></p>
+  </header>
+
+  <div class="stage">
+    <nav class="rail" id="rail" aria-label="Screen index"></nav>
+    <div class="phonewrap">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="glass">
+          <div class="sysbar" id="sysbar">
+            <span class="mono">10:15</span>
+            <span class="icons">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" width="3" height="11" rx="1"/></svg>
+              <svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 3.6a9.5 9.5 0 0 1 13 0M3.5 6.2a6 6 0 0 1 8 0"/><circle cx="7.5" cy="9.2" r="1.1" fill="currentColor" stroke="none"/></svg>
+              <svg width="24" height="11" viewBox="0 0 24 11" fill="none"><rect x=".7" y=".7" width="19" height="9.6" rx="2.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.1"/><rect x="2.3" y="2.3" width="13" height="6.4" rx="1.6" fill="currentColor"/><path d="M21.4 4v3c.9-.3 1.4-.8 1.4-1.5S22.3 4.3 21.4 4Z" fill="currentColor" fill-opacity=".45"/></svg>
+            </span>
+          </div>
+
+          <!-- 01 SPLASH -->
+          <section class="screen on" id="s-splash">
+            <div class="glasspad">
+              <svg class="splash-kolam" viewBox="0 0 200 200" fill="none" stroke="#E8397B" stroke-width="1.1" aria-hidden="true">
+                <path d="M100 40c22 22 22 38 0 60s-22 38 0 60"/><path d="M40 100c22-22 38-22 60 0s38 22 60 0"/>
+                <path d="M58 58c26 8 34 16 42 42s16 34 42 42"/><path d="M142 58c-8 26-16 34-42 42s-34 16-42 42"/>
+                <circle cx="100" cy="40" r="3" fill="#E8397B" stroke="none" style="animation-delay:.1s"/>
+                <circle cx="160" cy="100" r="3" fill="#E8397B" stroke="none" style="animation-delay:.35s"/>
+                <circle cx="100" cy="160" r="3" fill="#E8397B" stroke="none" style="animation-delay:.6s"/>
+                <circle cx="40" cy="100" r="3" fill="#E8397B" stroke="none" style="animation-delay:.85s"/>
+                <circle cx="58" cy="58" r="3" fill="#fff" stroke="none" style="animation-delay:1.1s"/>
+                <circle cx="142" cy="58" r="3" fill="#fff" stroke="none" style="animation-delay:1.3s"/>
+                <circle cx="142" cy="142" r="3" fill="#fff" stroke="none" style="animation-delay:1.5s"/>
+                <circle cx="58" cy="142" r="3" fill="#fff" stroke="none" style="animation-delay:1.7s"/>
+                <circle cx="100" cy="100" r="4.5" fill="#fff" stroke="none" style="animation-delay:1.9s"/>
+              </svg>
+              <div class="splash-mark">
+                <h1>NariMitra</h1>
+                <div class="tag">नारीमित्र · a friend to every woman</div>
+                <p class="line">What your neighbours paid,<br>who they trusted, and how recently.</p>
+              </div>
+              <div class="splash-foot">
+                <button class="btn primary full" onclick="go('city')">Choose your city</button>
+                <p style="text-align:center;color:#7F88C4;font-size:11px;margin:13px 0 0;line-height:1.6;">Free. Your number is never given to a business.<br>Nobody can pay to rank higher here.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 02 CITY -->
+          <section class="screen" id="s-city">
+            <div class="topbar">
+              <svg class="kolam" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="30" r="2"/><circle cx="90" cy="30" r="2"/><circle cx="150" cy="30" r="2"/><circle cx="210" cy="30" r="2"/><circle cx="270" cy="30" r="2"/><circle cx="330" cy="30" r="2"/><circle cx="60" cy="75" r="2"/><circle cx="120" cy="75" r="2"/><circle cx="180" cy="75" r="2"/><circle cx="240" cy="75" r="2"/><circle cx="300" cy="75" r="2"/><circle cx="360" cy="75" r="2"/></g><g stroke="#fff" stroke-width=".8" fill="none" opacity=".6"><path d="M30 30 60 75 90 30 120 75 150 30 180 75 210 30 240 75 270 30 300 75 330 30 360 75"/></g></svg>
+              <div class="topbar-row">
+                <button class="backbtn" onclick="go('splash')" aria-label="Back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <div><h2>Where do you live?</h2><p class="sub">340 cities and towns, not only the metros</p></div>
+              </div>
+            </div>
+            <div class="scroll">
+              <div class="gap"></div>
+              <div class="pad">
+                <div class="search">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8E8590" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                  <input placeholder="Search your city or town" aria-label="Search cities">
+                </div>
+                <div class="gap"></div>
+                <button class="btn out full" onclick="pickCity('Hyderabad','Telangana')">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--plum)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Use my location</button>
+                <div class="gap-l"></div>
+                <p class="eyebrow">Most active this week</p>
+                <div class="citygrid" id="citygrid"></div>
+                <div class="gap-l"></div>
+                <div class="alertbox">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C98307" stroke-width="2.2" stroke-linecap="round" style="flex:none;"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+                  <p>NariMitra opens in a town once <b>40 households</b> have joined it. Below that the pool is too thin to trust, so we say so instead of showing you a thin list.</p>
+                </div>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+            <div class="stickybar"><button class="btn primary full" onclick="pickCity('Hyderabad','Telangana')">Continue to Hyderabad</button></div>
+          </section>
+
+          <!-- 03 HOME -->
+          <section class="screen" id="s-home">
+            <div class="scroll">
+              <div class="homehead">
+                <svg class="kolam" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="40" cy="40" r="2"/><circle cx="110" cy="40" r="2"/><circle cx="180" cy="40" r="2"/><circle cx="250" cy="40" r="2"/><circle cx="320" cy="40" r="2"/><circle cx="75" cy="95" r="2"/><circle cx="145" cy="95" r="2"/><circle cx="215" cy="95" r="2"/><circle cx="285" cy="95" r="2"/><circle cx="355" cy="95" r="2"/><circle cx="40" cy="150" r="2"/><circle cx="110" cy="150" r="2"/><circle cx="180" cy="150" r="2"/><circle cx="250" cy="150" r="2"/><circle cx="320" cy="150" r="2"/></g><g stroke="#fff" stroke-width=".8" fill="none" opacity=".55"><path d="M40 40 75 95 40 150M110 40 145 95 110 150M180 40 215 95 180 150M250 40 285 95 250 150M320 40 355 95 320 150"/><path d="M75 95 110 40 145 95 180 40 215 95 250 40 285 95 320 40 355 95"/></g></svg>
+                <div class="inner">
+                  <button class="cityline" onclick="go('city')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                    <span id="homecity">Hyderabad</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <h2 class="greet">Good morning, Lakshmi</h2>
+                  <p class="greet-sub">1,284 households added something since yesterday.</p>
+                  <div class="search">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8E8590" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                    <input placeholder="Blouse tailor near Kukatpally" aria-label="Search">
+                    <button class="micbtn" onclick="toast('Ask in Telugu, Hindi or English')" aria-label="Search by voice">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--plum)" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="ticker">
+                <span class="live" aria-hidden="true"></span>
+                <p><b>Just in:</b> 22K gold dropped ₹340 per 10g. Confirmed at 9 shops this morning.</p>
+              </div>
+              <div class="pad">
+                <p class="eyebrow" style="margin-bottom:7px;">How close do you want the answer from?</p>
+                <div class="rings" id="homerings">
+                  <button class="ring" onclick="setRing(this,0)"><span class="rl">Building</span><span class="rn">34 homes</span></button>
+                  <button class="ring on" onclick="setRing(this,1)"><span class="rl">Kukatpally</span><span class="rn">2,140 homes</span></button>
+                  <button class="ring" onclick="setRing(this,2)"><span class="rl">Hyderabad</span><span class="rn">96k homes</span></button>
+                </div>
+                <p style="font-size:11.5px;color:var(--mute);margin:8px 2px 0;line-height:1.5;">Tighter rings have fewer answers but they come from people who share your street, your watchman and your rates.</p>
+
+                <div class="gap-l"></div>
+                <div class="ratestrip">
+                  <div class="rate"><div class="lbl">Gold 22K · 10g</div><div class="val">₹71,480</div><div class="dlt down">▼ ₹340 today</div></div>
+                  <div class="rate"><div class="lbl">Silver · 1kg</div><div class="val">₹96,200</div><div class="dlt up">▲ ₹800 today</div></div>
+                </div>
+
+                <div class="gap-l"></div>
+                <div class="spread" style="margin-bottom:12px;">
+                  <p class="eyebrow" style="margin:0;">What do you need today?</p><span class="pill ghost">10 areas</span>
+                </div>
+                <div class="catgrid" id="catgrid"></div>
+
+                <div class="gap-l"></div>
+                <div class="promise">
+                  <svg class="kolam" viewBox="0 0 300 160" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="30" r="2"/><circle cx="90" cy="30" r="2"/><circle cx="150" cy="30" r="2"/><circle cx="210" cy="30" r="2"/><circle cx="270" cy="30" r="2"/><circle cx="60" cy="80" r="2"/><circle cx="120" cy="80" r="2"/><circle cx="180" cy="80" r="2"/><circle cx="240" cy="80" r="2"/><circle cx="30" cy="130" r="2"/><circle cx="90" cy="130" r="2"/><circle cx="150" cy="130" r="2"/><circle cx="210" cy="130" r="2"/><circle cx="270" cy="130" r="2"/></g></svg>
+                  <div class="in">
+                    <h3>Three things we will not do</h3>
+                    <div class="l"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FD4A9" stroke-width="2.4" stroke-linecap="round" style="flex:none;margin-top:1px;"><path d="M5 12.5l4.5 4.5L19 7"/></svg><p><b>Never give a business your number.</b> Calls go through a masked line. No twelve callbacks after one search.</p></div>
+                    <div class="l"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FD4A9" stroke-width="2.4" stroke-linecap="round" style="flex:none;margin-top:1px;"><path d="M5 12.5l4.5 4.5L19 7"/></svg><p><b>Never sell a higher rank.</b> Order comes from confirmations, and you can open the arithmetic.</p></div>
+                    <div class="l"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FD4A9" stroke-width="2.4" stroke-linecap="round" style="flex:none;margin-top:1px;"><path d="M5 12.5l4.5 4.5L19 7"/></svg><p><b>Never show a stale fact as a fresh one.</b> Every entry ages in public.</p></div>
+                    <button class="btn primary full" style="margin-top:13px;" onclick="go('ranking')">See how ranking works</button>
+                  </div>
+                </div>
+
+                <div class="gap-l"></div>
+                <p class="eyebrow">Added in your building this morning</p>
+                <div id="recent"></div>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+            <nav class="tabbar" id="tabbar"></nav>
+          </section>
+
+          <!-- 04-13 CATEGORY -->
+          <section class="screen" id="s-cat">
+            <div class="topbar" id="cat-top">
+              <svg class="kolam" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="28" r="2"/><circle cx="90" cy="28" r="2"/><circle cx="150" cy="28" r="2"/><circle cx="210" cy="28" r="2"/><circle cx="270" cy="28" r="2"/><circle cx="330" cy="28" r="2"/><circle cx="60" cy="72" r="2"/><circle cx="120" cy="72" r="2"/><circle cx="180" cy="72" r="2"/><circle cx="240" cy="72" r="2"/><circle cx="300" cy="72" r="2"/><circle cx="360" cy="72" r="2"/></g><g stroke="#fff" stroke-width=".8" fill="none" opacity=".5"><path d="M30 28 60 72 90 28 120 72 150 28 180 72 210 28 240 72 270 28 300 72 330 28 360 72"/></g></svg>
+              <div class="topbar-row">
+                <button class="backbtn" onclick="go('home')" aria-label="Back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <div style="flex:1"><h2 id="cat-title">Buy</h2><p class="sub" id="cat-sub"></p></div>
+                <button class="backbtn" onclick="toast('Saved to your list')" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg></button>
+              </div>
+            </div>
+            <div class="scroll">
+              <div class="gap-s"></div>
+              <div class="chips" id="cat-chips"></div>
+              <div class="gap"></div>
+              <div class="pad" id="cat-body"></div>
+              <div class="gap-l"></div>
+            </div>
+            <nav class="tabbar" id="tabbar2"></nav>
+          </section>
+
+          <!-- 14 DETAIL -->
+          <section class="screen" id="s-detail">
+            <div class="scroll">
+              <div class="hero" id="d-hero">
+                <svg class="kolam" viewBox="0 0 400 180" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="40" cy="35" r="2.2"/><circle cx="110" cy="35" r="2.2"/><circle cx="180" cy="35" r="2.2"/><circle cx="250" cy="35" r="2.2"/><circle cx="320" cy="35" r="2.2"/><circle cx="75" cy="90" r="2.2"/><circle cx="145" cy="90" r="2.2"/><circle cx="215" cy="90" r="2.2"/><circle cx="285" cy="90" r="2.2"/><circle cx="355" cy="90" r="2.2"/><circle cx="40" cy="145" r="2.2"/><circle cx="110" cy="145" r="2.2"/><circle cx="180" cy="145" r="2.2"/><circle cx="250" cy="145" r="2.2"/><circle cx="320" cy="145" r="2.2"/></g><g stroke="#fff" stroke-width=".9" fill="none" opacity=".5"><path d="M40 35 75 90 40 145M110 35 145 90 110 145M180 35 215 90 180 145M250 35 285 90 250 145M320 35 355 90 320 145"/></g></svg>
+                <div class="in">
+                  <button class="backbtn" onclick="goBack()" style="margin-bottom:10px;" aria-label="Back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                  <span class="pill turm" id="d-pill">Verified</span>
+                  <h2 id="d-title">Sridevi Blouse Works</h2>
+                  <p id="d-meta">Kukatpally · 1.2 km</p>
+                </div>
+              </div>
+              <div class="gap"></div>
+              <div class="pad">
+                <div class="statgrid" id="d-stats"></div>
+                <div class="gap"></div>
+                <button class="card" style="padding:12px 13px;width:100%;text-align:left;font-family:var(--ff-body);cursor:pointer;border:1px solid var(--line);" onclick="go('ranking')">
+                  <div class="spread">
+                    <div><span style="font-size:13px;font-weight:700;display:block;">Why is this first in the list?</span>
+                    <span style="font-size:11.5px;color:var(--mute);">Open the arithmetic. No payment is in it.</span></div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4BCC6" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+                  </div>
+                </button>
+                <div class="gap-l"></div>
+                <p class="eyebrow">What neighbours reported</p>
+                <div class="card" style="padding:14px;" id="d-report"></div>
+                <div class="gap-l"></div>
+                <p class="eyebrow">Price log</p>
+                <div class="timeline" id="d-timeline"></div>
+                <div class="gap"></div>
+                <div class="alertbox" style="background:#E4F3EC;border-color:#B9DFCC;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0F7A4F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><rect x="4" y="10" width="16" height="10" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                  <p style="color:#0B5638;">Calling connects through a masked number. <b>The shop never receives your phone number</b>, and the line closes 24 hours after your last call.</p>
+                </div>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+            <div class="stickybar">
+              <button class="btn out" style="flex:none;width:52px;padding:13px 0;" onclick="toast('Saved to your list')" aria-label="Save"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4.5L6 21V3Z"/></svg></button>
+              <button class="btn out" style="flex:none;width:52px;padding:13px 0;" onclick="toast('Calling on a masked line')" aria-label="Call"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a12 12 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg></button>
+              <button class="btn primary full" onclick="go('contribute')">Confirm this price</button>
+            </div>
+          </section>
+
+          <!-- 15 RANKING -->
+          <section class="screen" id="s-ranking">
+            <div class="topbar">
+              <svg class="kolam" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="28" r="2"/><circle cx="90" cy="28" r="2"/><circle cx="150" cy="28" r="2"/><circle cx="210" cy="28" r="2"/><circle cx="270" cy="28" r="2"/><circle cx="330" cy="28" r="2"/><circle cx="60" cy="72" r="2"/><circle cx="120" cy="72" r="2"/><circle cx="180" cy="72" r="2"/><circle cx="240" cy="72" r="2"/><circle cx="300" cy="72" r="2"/><circle cx="360" cy="72" r="2"/></g></svg>
+              <div class="topbar-row">
+                <button class="backbtn" onclick="goBack()" aria-label="Back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <div><h2>Why this is first</h2><p class="sub">Sridevi Blouse Works · Stitch &amp; Style</p></div>
+              </div>
+            </div>
+            <div class="scroll">
+              <div class="gap"></div>
+              <div class="pad">
+                <div class="card score">
+                  <div class="dial">
+                    <svg width="74" height="74" viewBox="0 0 74 74"><circle cx="37" cy="37" r="31" fill="none" stroke="#F0EBE5" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="#0F7A4F" stroke-width="8" stroke-linecap="round" stroke-dasharray="195" stroke-dashoffset="27"/></svg>
+                    <div class="v">86</div>
+                  </div>
+                  <div>
+                    <p style="margin:0;font-size:13.5px;font-weight:700;line-height:1.35;">Pool score 86 of 100</p>
+                    <p style="margin:5px 0 0;font-size:11.5px;color:var(--mute);line-height:1.5;">Rebuilt every hour. Nothing in this number can be bought.</p>
+                  </div>
+                </div>
+                <div class="gap-l"></div>
+                <p class="eyebrow">What went into it</p>
+                <div class="card" style="padding:4px 14px 10px;" id="factors"></div>
+                <div class="gap-l"></div>
+                <p class="eyebrow">What is deliberately not in it</p>
+                <div class="card" style="padding:14px;">
+                  <p style="margin:0 0 10px;font-size:12.5px;color:var(--mute);line-height:1.6;">A directory ranks by what a business pays for the lead. A marketplace ranks by who it has under contract. Neither number is about you. These are excluded here:</p>
+                  
+                  <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                    <span class="pill ghost">Advertising spend</span><span class="pill ghost">Subscription tier</span>
+                    <span class="pill ghost">Commission share</span><span class="pill ghost">Star rating alone</span>
+                    <span class="pill ghost">Review volume alone</span><span class="pill ghost">Photos and profile polish</span>
+                  </div>
+                </div>
+                <div class="gap"></div>
+                <div class="alertbox">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C98307" stroke-width="2.2" stroke-linecap="round" style="flex:none;"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+                  <p>A single five-star review counts for almost nothing here. <b>Six households confirming the same price in a week counts for a great deal.</b> That is the whole difference.</p>
+                </div>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 16 CIRCLE -->
+          <section class="screen" id="s-circle">
+            <div class="topbar">
+              <svg class="kolam" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="28" r="2"/><circle cx="90" cy="28" r="2"/><circle cx="150" cy="28" r="2"/><circle cx="210" cy="28" r="2"/><circle cx="270" cy="28" r="2"/><circle cx="330" cy="28" r="2"/><circle cx="60" cy="72" r="2"/><circle cx="120" cy="72" r="2"/><circle cx="180" cy="72" r="2"/><circle cx="240" cy="72" r="2"/><circle cx="300" cy="72" r="2"/><circle cx="360" cy="72" r="2"/></g></svg>
+              <div class="topbar-row"><div><h2>Your circle</h2><p class="sub">How far each fact has travelled to reach you</p></div></div>
+            </div>
+            <div class="scroll">
+              <div class="gap"></div>
+              <div class="pad">
+                <div class="ringart">
+                  <svg width="212" height="212" viewBox="0 0 212 212" aria-hidden="true">
+                    <circle cx="106" cy="106" r="98" fill="#F6F1EB" stroke="#E4DCD3"/>
+                    <circle cx="106" cy="106" r="66" fill="#E8EBF9" stroke="#C9CFF3"/>
+                    <circle cx="106" cy="106" r="34" fill="#FDF0D6" stroke="#F3DCA8"/>
+                    <text x="106" y="102" text-anchor="middle" font-family="DM Mono, monospace" font-size="15" fill="#232B66">34</text>
+                    <text x="106" y="116" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="9" font-weight="700" fill="#6E6570">BUILDING</text>
+                    <text x="106" y="56" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="9.5" font-weight="700" fill="#3A44A0">KUKATPALLY · 2,140</text>
+                    <text x="106" y="24" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="9.5" font-weight="700" fill="#6E6570">HYDERABAD · 96,000</text>
+                  </svg>
+                </div>
+                <p style="font-size:12.5px;color:var(--mute);line-height:1.65;margin:0 0 20px;">A city-wide feed becomes noise by the time it is useful. NariMitra keeps the same fact at three distances and tells you which distance you are reading. A maid's rate from your own building is worth more than forty opinions from across town.</p>
+
+                <p class="eyebrow">Prashanthi Heights · 34 homes</p>
+                <div class="card" style="padding:6px 14px 10px;">
+                  <div class="hood"><span class="av">S</span><div style="flex:1"><span class="listrow-t" style="font-size:13.5px;font-weight:700;display:block;">Saroja, cook</span><span style="font-size:11.5px;color:var(--mute);">Works in 6 flats here · ₹6,500 for two meals</span></div><span class="pill leaf">In building</span></div>
+                  <div class="hood"><span class="av">R</span><div style="flex:1"><span style="font-size:13.5px;font-weight:700;display:block;">Ravi, plumber</span><span style="font-size:11.5px;color:var(--mute);">Called by 11 flats · ₹350 a visit, no night charge</span></div><span class="pill leaf">In building</span></div>
+                  <div class="hood" style="border-bottom:0;"><span class="av">₹</span><div style="flex:1"><span style="font-size:13.5px;font-weight:700;display:block;">Maid rate here is ₹3,900</span><span style="font-size:11.5px;color:var(--mute);">From 19 flats. Area median is ₹3,800.</span></div><span class="pill turm">Rate</span></div>
+                </div>
+                <div class="gap"></div>
+                <div class="card" style="padding:14px;">
+                  <div class="spread" style="margin-bottom:9px;">
+                    <p class="eyebrow" style="margin:0;">Your building needs</p><span class="pill rose">3 open</span>
+                  </div>
+                  
+                  <p style="margin:0 0 11px;font-size:12.5px;color:var(--mute);line-height:1.55;">Questions your neighbours asked that nobody has answered yet. Answering one is the fastest way to be useful here.</p>
+                  <div style="font-size:13px;line-height:1.9;">
+                    <div>Does anyone have a Sunday-only cook?</div>
+                    <div>Which lift AMC did the association sign?</div>
+                    <div>Whose car cleaner turns up before 7am?</div>
+                  </div>
+                  <button class="btn dark full" style="margin-top:13px;" onclick="go('contribute')">Answer one</button>
+                </div>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+            <nav class="tabbar" id="tabbar5"></nav>
+          </section>
+
+          <!-- 17 RATE BENCHMARK -->
+          <section class="screen" id="s-rates">
+            <div class="topbar" style="background:linear-gradient(150deg,var(--c-home),var(--plum));">
+              <svg class="kolam" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="28" r="2"/><circle cx="90" cy="28" r="2"/><circle cx="150" cy="28" r="2"/><circle cx="210" cy="28" r="2"/><circle cx="270" cy="28" r="2"/><circle cx="330" cy="28" r="2"/><circle cx="60" cy="72" r="2"/><circle cx="120" cy="72" r="2"/><circle cx="180" cy="72" r="2"/><circle cx="240" cy="72" r="2"/><circle cx="300" cy="72" r="2"/><circle cx="360" cy="72" r="2"/></g></svg>
+              <div class="topbar-row">
+                <button class="backbtn" onclick="goBack()" aria-label="Back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <div><h2>The going rate</h2><p class="sub">Kukatpally · what households actually pay</p></div>
+              </div>
+            </div>
+            <div class="scroll">
+              <div class="gap"></div>
+              <div class="pad">
+                <div class="alertbox" style="background:#E4F3EC;border-color:#B9DFCC;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0F7A4F" stroke-width="2.2" stroke-linecap="round" style="flex:none;"><path d="M3 17l5-6 4 3 5-8 4 5"/></svg>
+                  <p style="color:#0B5638;">No app in India holds this, because the people it prices are not on any platform. <b>Your cook, your maid, your blouse tailor and your tuition teacher are hired by word of mouth.</b> This is that word of mouth, counted.</p>
+                </div>
+                <div class="gap-l"></div>
+                <p class="eyebrow">Monthly help</p>
+                <div class="card" style="padding:4px 14px 12px;" id="ratebench"></div>
+                <div class="gap-l"></div>
+                <div class="card" style="padding:14px;">
+                  <p class="eyebrow" style="margin:0 0 8px;">Why this matters both ways</p>
+                  <p style="margin:0;font-size:12.5px;color:var(--mute);line-height:1.65;">Households underpay when they have no reference, and workers get underpaid when they have no reference either. Publishing the band lifts the floor and caps the gouging. NariMitra shows the same numbers to whoever opens it.</p>
+                </div>
+                <div class="gap"></div>
+                <button class="btn primary full" onclick="go('contribute')">Add what you pay</button>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 18 CONTRIBUTE -->
+          <section class="screen" id="s-contribute">
+            <div class="topbar">
+              <svg class="kolam" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="28" r="2"/><circle cx="90" cy="28" r="2"/><circle cx="150" cy="28" r="2"/><circle cx="210" cy="28" r="2"/><circle cx="270" cy="28" r="2"/><circle cx="330" cy="28" r="2"/><circle cx="60" cy="72" r="2"/><circle cx="120" cy="72" r="2"/><circle cx="180" cy="72" r="2"/><circle cx="240" cy="72" r="2"/><circle cx="300" cy="72" r="2"/><circle cx="360" cy="72" r="2"/></g></svg>
+              <div class="topbar-row">
+                <button class="backbtn" onclick="goBack()" aria-label="Back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <div><h2>Add to the pool</h2><p class="sub">40 seconds. Your name is never shown.</p></div>
+              </div>
+            </div>
+            <div class="scroll">
+              <div class="gap"></div>
+              <div class="pad">
+                <button class="voicebtn" onclick="toast('Speak in Telugu, Hindi or English')">
+                  <span class="wave"><i style="animation-delay:0s"></i><i style="animation-delay:.12s"></i><i style="animation-delay:.24s"></i><i style="animation-delay:.36s"></i><i style="animation-delay:.48s"></i><i style="animation-delay:.6s"></i></span>
+                  <span><span style="display:block;font-size:13.5px;font-weight:700;">Just say it instead</span>
+                  <span style="display:block;font-size:11.5px;color:var(--mute);margin-top:2px;line-height:1.45;">Telugu, Hindi or English. Typing a form is why most people never contribute.</span></span>
+                </button>
+                <div class="gap-l"></div>
+                <p class="eyebrow">Or fill it in</p>
+                <div class="field"><label>What kind of tip is this?</label><div class="picker" id="tiptype"></div></div>
+                <div class="field"><label>Shop, service or person</label><input value="Sridevi Blouse Works, Kukatpally"></div>
+                <div class="field"><label>What did you pay?</label><input value="₹450 for a lined princess-cut blouse"></div>
+                <div class="field"><label>Anything a neighbour should know?</label>
+                  <textarea placeholder="Turnaround, quality, whether a deposit was taken, how a problem was handled.">Took 4 days instead of the 3 promised. Fitting was correct first time. She does not do padded cups.</textarea></div>
+                <div class="field"><label>Add a photo of the bill</label>
+                  <button class="btn out full" onclick="toast('Camera would open here')" style="padding:20px;border-style:dashed;">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
+                    A bill doubles this tip's weight</button></div>
+                <div class="alertbox">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C98307" stroke-width="2.2" stroke-linecap="round" style="flex:none;"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+                  <p>Goes live once <b>two other households</b> confirm it. Withdraw any time. A tip you never refresh fades out of the list on its own rather than misleading someone next year.</p>
+                </div>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+            <div class="stickybar"><button class="btn primary full" onclick="submitTip()">Add to the pool</button></div>
+          </section>
+
+          <!-- 19 SAFETY -->
+          <section class="screen" id="s-safety">
+            <div class="topbar" style="background:linear-gradient(150deg,#0E3B2A,var(--plum));">
+              <svg class="kolam" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="28" r="2"/><circle cx="90" cy="28" r="2"/><circle cx="150" cy="28" r="2"/><circle cx="210" cy="28" r="2"/><circle cx="270" cy="28" r="2"/><circle cx="330" cy="28" r="2"/><circle cx="60" cy="72" r="2"/><circle cx="120" cy="72" r="2"/><circle cx="180" cy="72" r="2"/><circle cx="240" cy="72" r="2"/><circle cx="300" cy="72" r="2"/><circle cx="360" cy="72" r="2"/></g></svg>
+              <div class="topbar-row">
+                <button class="backbtn" onclick="goBack()" aria-label="Back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <div><h2>Safety and privacy</h2><p class="sub">The settings that matter most, on one screen</p></div>
+              </div>
+            </div>
+            <div class="scroll">
+              <div class="gap"></div>
+              <div class="pad">
+                <div class="card" style="padding:4px 14px;">
+                  <div class="listrow"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" stroke-width="2" stroke-linecap="round" style="flex:none;"><rect x="4" y="10" width="16" height="10" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                    <span style="flex:1"><span class="t">Masked calling</span><span class="s">Businesses see a temporary number, never yours</span></span>
+                    <button class="toggle on" onclick="tog(this)" aria-label="Masked calling"><i></i></button></div>
+                  <div class="listrow"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" stroke-width="2" stroke-linecap="round" style="flex:none;"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/></svg>
+                    <span style="flex:1"><span class="t">Post without your name</span><span class="s">Neighbours see the building, not the person</span></span>
+                    <button class="toggle on" onclick="tog(this)" aria-label="Anonymous posting"><i></i></button></div>
+                  <div class="listrow"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                    <span style="flex:1"><span class="t">Share a home visit</span><span class="s">Send a live link to two contacts while a worker is at your home</span></span>
+                    <button class="toggle" onclick="tog(this)" aria-label="Share visit"><i></i></button></div>
+                  <div class="listrow" style="border-bottom:0;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" stroke-width="2" stroke-linecap="round" style="flex:none;"><path d="M12 3l7 3v6c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6l7-3Z"/></svg>
+                    <span style="flex:1"><span class="t">Women-only providers</span><span class="s">Filter every category to women practitioners</span></span>
+                    <button class="toggle" onclick="tog(this)" aria-label="Women only"><i></i></button></div>
+                </div>
+                <div class="gap-l"></div>
+                <p class="eyebrow">What we hold about you</p>
+                <div class="card" style="padding:14px;">
+                  <p style="margin:0 0 12px;font-size:12.5px;color:var(--mute);line-height:1.65;">Your phone number, your building, and the tips you chose to add. No contacts, no location history, no call recordings. Under the DPDP Act you can take all of it out or delete it, and the button below does exactly that without a support ticket.</p>
+                  <div style="display:flex;gap:9px;">
+                    <button class="btn out" style="flex:1;font-size:13px;" onclick="toast('Export ready in 2 minutes')">Export my data</button>
+                    <button class="btn out" style="flex:1;font-size:13px;color:var(--rose);border-color:#F5CDD9;" onclick="toast('This would ask you to confirm')">Delete everything</button>
+                  </div>
+                </div>
+                <div class="gap"></div>
+                <div class="alertbox">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C98307" stroke-width="2.2" stroke-linecap="round" style="flex:none;"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+                  <p>NariMitra does not run police verification. When a listing says a document was seen, <b>it means a named neighbour saw it, not that we checked it.</b> Verify before you hire someone into your home.</p>
+                </div>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 20 SAVED -->
+          <section class="screen" id="s-saved">
+            <div class="topbar">
+              <svg class="kolam" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="30" cy="28" r="2"/><circle cx="90" cy="28" r="2"/><circle cx="150" cy="28" r="2"/><circle cx="210" cy="28" r="2"/><circle cx="270" cy="28" r="2"/><circle cx="330" cy="28" r="2"/><circle cx="60" cy="72" r="2"/><circle cx="120" cy="72" r="2"/><circle cx="180" cy="72" r="2"/><circle cx="240" cy="72" r="2"/><circle cx="300" cy="72" r="2"/><circle cx="360" cy="72" r="2"/></g></svg>
+              <div class="topbar-row"><div><h2>Your list</h2><p class="sub">Watched prices, saved people, upcoming plans</p></div></div>
+            </div>
+            <div class="scroll">
+              <div class="gap-s"></div>
+              <div class="chips">
+                <button class="chip on" onclick="pickChip(this)">Watching 6</button>
+                <button class="chip" onclick="pickChip(this)">People 11</button>
+                <button class="chip" onclick="pickChip(this)">Plans 3</button>
+                <button class="chip" onclick="pickChip(this)">Coupons 8</button>
+              </div>
+              <div class="gap"></div>
+              <div class="pad">
+                <div class="card" style="padding:14px;margin-bottom:16px;">
+                  <div class="spread">
+                    <div><p class="eyebrow" style="margin:0 0 4px;">Price alert</p>
+                      <p style="margin:0;font-weight:700;font-size:14.5px;">22K gold below ₹71,000</p>
+                      <p style="margin:3px 0 0;font-size:11.5px;color:var(--mute);">₹480 away. One notification, not a stream.</p></div>
+                    <span class="pill leaf">On</span>
+                  </div>
+                </div>
+                <div id="savedlist"></div>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+            <nav class="tabbar" id="tabbar3"></nav>
+          </section>
+
+          <!-- 21 PROFILE -->
+          <section class="screen" id="s-profile">
+            <div class="topbar" style="padding-bottom:26px;">
+              <svg class="kolam" viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true"><g fill="#fff"><circle cx="40" cy="30" r="2"/><circle cx="110" cy="30" r="2"/><circle cx="180" cy="30" r="2"/><circle cx="250" cy="30" r="2"/><circle cx="320" cy="30" r="2"/><circle cx="75" cy="80" r="2"/><circle cx="145" cy="80" r="2"/><circle cx="215" cy="80" r="2"/><circle cx="285" cy="80" r="2"/><circle cx="355" cy="80" r="2"/><circle cx="40" cy="130" r="2"/><circle cx="110" cy="130" r="2"/><circle cx="180" cy="130" r="2"/><circle cx="250" cy="130" r="2"/><circle cx="320" cy="130" r="2"/></g><g stroke="#fff" stroke-width=".8" fill="none" opacity=".5"><path d="M40 30 75 80 40 130M110 30 145 80 110 130M180 30 215 80 180 130M250 30 285 80 250 130M320 30 355 80 320 130"/></g></svg>
+              <div class="topbar-row" style="align-items:flex-start;">
+                <div class="avatar">L</div>
+                <div style="flex:1;padding-top:5px;">
+                  <h2 style="font-size:24px;">Lakshmi R.</h2>
+                  <p class="sub">Prashanthi Heights, Kukatpally · joined March 2026</p>
+                  <div style="margin-top:8px;"><span class="pill turm">Trusted contributor</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="scroll">
+              <div class="gap"></div>
+              <div class="pad">
+                <div class="statgrid">
+                  <div class="stat"><div class="v">47</div><div class="l">Tips added</div></div>
+                  <div class="stat"><div class="v">312</div><div class="l">Helped</div></div>
+                  <div class="stat"><div class="v">₹8.4k</div><div class="l">Saved</div></div>
+                </div>
+                <div class="gap-l"></div>
+                <p class="eyebrow">Your tips, ageing</p>
+                <div class="card" style="padding:14px;">
+                  <p style="margin:0 0 12px;font-size:12.5px;color:var(--mute);line-height:1.6;">Four of your tips are more than six months old. Refreshing one takes a tap and puts it back at full weight for the people who need it.</p>
+                  <div class="fresh lo" style="margin:0 0 10px;"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span><span><b>Fading</b> · Nizam Tailors rate, added 7 months ago</span></div>
+                  <div class="fresh md" style="margin:0 0 12px;"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span><span><b>Ageing</b> · Vijaya Diagnostics offer, added 5 weeks ago</span></div>
+                  <button class="btn dark full" onclick="toast('Still ₹520? Confirmed.')">Refresh the oldest one</button>
+                </div>
+                <div class="gap-l"></div>
+                <p class="eyebrow">Settings</p>
+                <button class="listrow" onclick="go('safety')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--plum)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M12 3l7 3v6c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6l7-3Z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg><span style="flex:1"><span class="t">Safety and privacy</span><span class="s">Masked calls on · name hidden</span></span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C4BCC6" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+                <button class="listrow" onclick="go('circle')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--plum)" stroke-width="2" style="flex:none;"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg><span style="flex:1"><span class="t">Your circle</span><span class="s" id="profcity">Prashanthi Heights · Kukatpally · Hyderabad</span></span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C4BCC6" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+                <button class="listrow" onclick="toast('తెలుగు · हिन्दी · English')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--plum)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15 0 18-2.5-3-2.5-15.3 0-18Z"/></svg><span style="flex:1"><span class="t">Language</span><span class="s">Telugu · switch any time, including mid-form</span></span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C4BCC6" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+                <button class="listrow" style="border-bottom:0;" onclick="toast('Price alerts only')"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--plum)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M6 9a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2.4 2.4 0 0 0 4 0"/></svg><span style="flex:1"><span class="t">What you get told about</span><span class="s">Price alerts only. No daily digest, ever.</span></span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C4BCC6" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+                <div class="gap-l"></div>
+              </div>
+            </div>
+            <nav class="tabbar" id="tabbar4"></nav>
+          </section>
+
+          <div class="toast" id="toast">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--turmeric)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            <span id="toasttext"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const G=(p)=>`<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+const glyph={
+  buy:'<path d="M3.5 11.2V4.5a1 1 0 0 1 1-1h6.7a1 1 0 0 1 .7.3l8.4 8.4a1 1 0 0 1 0 1.4l-6.7 6.7a1 1 0 0 1-1.4 0L3.8 11.9a1 1 0 0 1-.3-.7Z"/><circle cx="7.8" cy="7.8" r="1.4"/>',
+  beautify:'<path d="M9 3h6v4H9zM8 7h8v5H8zM9.5 12h5v9h-5z"/><path d="M11 16h2"/>',
+  stitch:'<path d="M8 3v13a4 4 0 0 0 8 0V3"/><path d="M8 6h8M8 13h8"/><circle cx="12" cy="20.5" r="1.2"/>',
+  home:'<path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M9.5 20v-5.5h5V20"/>',
+  family:'<circle cx="8" cy="7.5" r="2.8"/><circle cx="16.5" cy="9" r="2.2"/><path d="M3 20c0-3.3 2.2-5.5 5-5.5s5 2.2 5 5.5"/><path d="M14 20c0-2.5 1.3-4.2 3.3-4.2 1.9 0 3.2 1.5 3.2 3.6"/>',
+  health:'<path d="M3 12.5h3.5l2-5 3 10 2.5-7 1.7 3.5H21"/>',
+  save:'<ellipse cx="12" cy="6.5" rx="7.5" ry="3"/><path d="M4.5 6.5v11c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-11"/><path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"/>',
+  celebrate:'<path d="M12 21c-3 0-5-2-5-4.5 0-2.8 2.6-4.3 3.3-7.4.2-.9.1-1.9-.3-2.9 2.4.7 3.8 2.4 4 4.5.9-.7 1.4-1.7 1.5-3 1.7 1.7 2.5 3.9 2.5 6.3C18 19 15 21 12 21Z"/>',
+  learn:'<path d="M3.5 6.5c3-1.5 5.5-1.5 8.5 0 3-1.5 5.5-1.5 8.5 0v12c-3-1.5-5.5-1.5-8.5 0-3-1.5-5.5-1.5-8.5 0v-12Z"/><path d="M12 6.5v12"/>',
+  convenience:'<circle cx="6" cy="17.5" r="2.6"/><circle cx="18" cy="17.5" r="2.6"/><path d="M8.6 17.5h6.8"/><path d="M6 15V9.5h5l2.5 5"/><path d="M13 6.5h4l1.4 11"/>'
+};
+
+/* f = freshness: hi / md / lo, plus the label */
+const CATS=[
+{id:'buy',name:'Buy',tint:'var(--c-buy)',short:'Clothes, jewellery, cosmetics, groceries, household, metal rates',count:'2,140 live',sub:'Offers and rates, confirmed by people who bought',
+ chips:['All','Gold & silver','Clothes','Jewellery','Cosmetics','Groceries','Household'],module:'rates',
+ items:[
+  {t:'Vasavi Silks, Ameerpet',m:'Kanchi cotton sarees · festival stock',now:'₹1,850',was:'₹2,600',badge:['rose','29% off'],f:['hi','Fresh','18 confirmations in the last 3 hours'],letter:'V'},
+  {t:'Manepally Jewellers, Sultan Bazaar',m:'Making charge cut on plain gold chains',now:'6% making',was:'11%',badge:['turm','Ends Sunday'],f:['hi','Fresh','9 confirmations today'],letter:'M'},
+  {t:'Ratnadeep, KPHB Phase 3',m:'Toor dal 1kg · loose',now:'₹142',was:'₹168',badge:['leaf','Cheapest of 6 checked'],f:['hi','Fresh','22 households checked today'],letter:'R'},
+  {t:'Sri Lakshmi Cosmetics, Kukatpally',m:'Lakme and Ponds · bulk billing',now:'22% off',was:'',badge:['plum','Cash only'],f:['md','Ageing','Last confirmed 11 days ago'],letter:'S'},
+  {t:'Aditya Home Needs, Miyapur',m:'Steel dinner set, 32 pieces',now:'₹2,240',was:'₹3,100',badge:['rose','Last 4 sets'],f:['md','Ageing','Last confirmed 9 days ago'],letter:'A'}]},
+{id:'beautify',name:'Beautify',tint:'var(--c-beautify)',short:'Salon, makeup, skincare, haircare',count:'870 people',sub:'Rated on what they actually charged, not their menu card',
+ chips:['All','Salon','Bridal makeup','Skincare','Haircare','At home','Women only'],module:'slots',
+ items:[
+  {t:'Kavitha Beauty Lounge',m:'Kukatpally · women only · 8am to 8pm',now:'₹650',was:'₹900',badge:['leaf','Rate held 4 months'],f:['hi','Fresh','46 confirmations, 6 this week'],letter:'K'},
+  {t:'Anjali Nair, bridal makeup',m:'Travels across Hyderabad · HD and airbrush',now:'₹18,000',was:'',badge:['turm','Books 3 months out'],f:['hi','Fresh','23 weddings reported'],letter:'A'},
+  {t:'Glow Skin Clinic, Madhapur',m:'Dermat-led facials · Dr K. Sravani, MBBS',now:'₹2,400',was:'₹3,200',badge:['plum','Doctor on site'],f:['md','Ageing','Last confirmed 3 weeks ago'],letter:'G'},
+  {t:'Padma, haircare at home',m:'Head massage, hair spa, keratin · comes to you',now:'₹450',was:'',badge:['leaf','31 regular households'],f:['hi','Fresh','Confirmed yesterday'],letter:'P'}]},
+{id:'stitch',name:'Stitch & Style',tint:'var(--c-stitch)',short:'Tailoring, alterations, styling, blouse specialists',count:'510 people',sub:'Rated on fit, turnaround and honesty about delays',
+ chips:['All','Blouse','Alterations','Suits & kurtas','Men','Styling'],module:'alert',
+ alert:'Festival season. Most blouse tailors have shut order books until 4 September. The six below are still taking work, confirmed this morning.',
+ items:[
+  {t:'Sridevi Blouse Works',m:'Kukatpally · princess cut, katori, boat neck',now:'₹450',was:'',badge:['leaf','Fit right first time, 38 of 41'],f:['hi','Fresh','6 confirmations in 12 hours'],letter:'S'},
+  {t:'Quick Fit Alterations, Miyapur',m:'Saree falls, hemming, zips · same day',now:'₹80',was:'',badge:['leaf','Same-day, 4 of 5 times'],f:['hi','Fresh','27 confirmations, 4 today'],letter:'Q'},
+  {t:'Nizam Tailors, Tolichowki',m:'Men\'s shirts and trousers · 3 day turnaround',now:'₹520',was:'',badge:['turm','Takes a deposit'],f:['lo','Fading','Nobody has confirmed in 7 months'],letter:'N'},
+  {t:'Rehana, personal styling',m:'Wardrobe edit and shopping · 3 hour session',now:'₹2,500',was:'',badge:['plum','Home visit'],f:['md','Ageing','Last confirmed 6 weeks ago'],letter:'R'}]},
+{id:'home',name:'Maintain Home',tint:'var(--c-home)',short:'Maid, cook, cleaning, repairs, laundry',count:'1,320 people',sub:'The help nobody else lists, at the rate this area pays',
+ chips:['All','Maid','Cook','Deep cleaning','Plumber','Electrician','Laundry'],module:'rateguide',
+ items:[
+  {t:'Saroja, cook',m:'Andhra veg and non-veg · 2 meals · Kukatpally',now:'₹6,500/mo',was:'',badge:['leaf','6 families, 4+ years'],f:['hi','Fresh','Confirmed by 6 employers this month'],letter:'S'},
+  {t:'Ravi, plumber',m:'Miyapur to Bachupally · answers after 9pm',now:'₹350 visit',was:'',badge:['turm','Under 2h response'],f:['hi','Fresh','34 confirmations, 3 today'],letter:'R'},
+  {t:'Sparkle Deep Cleaning',m:'2BHK full house · 4 person team · 5 hours',now:'₹3,200',was:'₹4,500',badge:['rose','Monsoon rate'],f:['hi','Fresh','12 households, 2 this week'],letter:'S'},
+  {t:'Lakshmi, maid',m:'Sweeping, mopping, utensils · 1 hour daily',now:'₹3,800/mo',was:'',badge:['plum','Area band ₹3,500 to ₹4,200'],f:['hi','Fresh','From 88 reported rates'],letter:'L'},
+  {t:'Ujwala Laundry, KPHB',m:'Wash and fold · free pickup above 5kg',now:'₹70/kg',was:'₹85',badge:['leaf','48 hours'],f:['md','Ageing','Last confirmed 2 weeks ago'],letter:'U'}]},
+{id:'family',name:'Care for Family',tint:'var(--c-family)',short:'Children, elderly, pets, healthcare',count:'640 people',sub:'Carers, with the documents a named neighbour has seen',
+ chips:['All','Childcare','Elder care','Pets','Nursing','Physiotherapy','Women only'],module:'trust',
+ items:[
+  {t:'Little Steps Daycare, KPHB',m:'6 months to 4 years · 8am to 7pm · CCTV access',now:'₹9,000/mo',was:'',badge:['leaf','ID and police check seen'],f:['hi','Fresh','14 enrolled households'],letter:'L'},
+  {t:'Sunitha, elder care attendant',m:'Day shift · post-surgery and dementia experience',now:'₹18,000/mo',was:'',badge:['turm','Telugu and Hindi'],f:['hi','Fresh','5 families, confirmed this month'],letter:'S'},
+  {t:'Dr Kiran, home visit paediatrician',m:'Evening visits across Kukatpally · MD Paed',now:'₹800/visit',was:'',badge:['plum','Under 90 minutes'],f:['hi','Fresh','29 households, 4 today'],letter:'K'},
+  {t:'Pawsome Vet and Grooming, Miyapur',m:'Vaccination, grooming, boarding',now:'₹600',was:'₹850',badge:['leaf','Open Sundays'],f:['md','Ageing','Last confirmed 12 days ago'],letter:'P'}]},
+{id:'health',name:'Stay Healthy',tint:'var(--c-health)',short:'Doctors, fitness, nutrition, wellness',count:'980 listings',sub:'With the waiting time people are sitting in right now',
+ chips:['All','Doctors','Diagnostics','Gym','Yoga','Nutrition'],module:'wait',
+ items:[
+  {t:'Dr Anand Rao, general physician',m:'Kukatpally · MBBS MD · 10 to 1, 6 to 9',now:'₹500',was:'',badge:['leaf','Average wait 22 min'],f:['hi','Fresh','63 patients reported this month'],letter:'A'},
+  {t:'Vijaya Diagnostics, KPHB',m:'Full body panel, 68 parameters · home collection',now:'₹1,299',was:'₹2,400',badge:['rose','46% off till 31 Aug'],f:['hi','Fresh','26 confirmations, 5 today'],letter:'V'},
+  {t:'Iron Yard Gym, Miyapur',m:'Women-only hours 6am to 10am · no joining fee',now:'₹1,600/mo',was:'₹2,200',badge:['turm','Quarterly ₹4,200'],f:['md','Ageing','Last confirmed 3 weeks ago'],letter:'I'},
+  {t:'Sujatha, clinical nutritionist',m:'PCOS, diabetes, post-natal · online or in person',now:'₹1,200',was:'',badge:['plum','RD certified'],f:['md','Ageing','Last confirmed 4 weeks ago'],letter:'S'},
+  {t:'Sunrise Yoga, Bachupally park',m:'6am daily · outdoors · all ages',now:'₹900/mo',was:'',badge:['leaf','Free trial week'],f:['hi','Fresh','19 confirmations, 2 today'],letter:'S'}]},
+{id:'save',name:'Save Money',tint:'var(--c-save)',short:'Offers, coupons, group buying, loyalty, travel and airline deals',count:'1,760 live',sub:'Coupons that actually worked, and group buys neighbours started',
+ chips:['All','Coupons','Group buy','Loyalty','Travel','Flights'],module:'groupbuy',
+ items:[
+  {t:'Hyderabad to Tirupati, IndiGo',m:'Fri 22 Aug, 6:10am · fare tracked 9 days',now:'₹2,180',was:'₹4,650',badge:['rose','Lowest in 30 days'],f:['hi','Fresh','4 neighbours booked it today'],letter:'✈'},
+  {t:'Coupon: dining, Gachibowli',m:'Flat 40% up to ₹150 · works on the app, not web',now:'40% off',was:'',badge:['leaf','Worked for 22 of 24'],f:['hi','Fresh','Tested by 24 people in 48 hours'],letter:'C'},
+  {t:'Group buy: Sona Masoori 26kg',m:'Mill rate · pickup at KPHB community hall',now:'₹1,285',was:'₹1,610',badge:['turm','33 of 40 joined'],f:['hi','Fresh','Closes in 6 hours'],letter:'G'},
+  {t:'Ratnadeep loyalty tier resets',m:'Silver resets 31 Aug · spend ₹1,400 to hold it',now:'',was:'',badge:['plum','Deadline'],f:['hi','Fresh','Flagged by 8 neighbours'],letter:'R'},
+  {t:'Hyderabad to Goa, sleeper bus',m:'Saturday departures · boarding at Miyapur',now:'₹1,450',was:'₹2,100',badge:['turm','Early bird'],f:['md','Ageing','Last confirmed 10 days ago'],letter:'B'}]},
+{id:'celebrate',name:'Celebrate',tint:'var(--c-celebrate)',short:'Birthdays, weddings, festivals, gifts and functions',count:'720 listings',sub:'What hosts paid per plate, and when booking windows shut',
+ chips:['All','Birthdays','Weddings','Festivals','Gifts','Catering','Decor'],module:'festival',
+ items:[
+  {t:'Sri Annapurna Catering',m:'Andhra veg · minimum 100 plates · own vessels',now:'₹285/plate',was:'₹340',badge:['leaf','22 hosts confirmed'],f:['hi','Fresh','3 functions this month'],letter:'S'},
+  {t:'Ganesh idol booking, Kukatpally',m:'Eco-friendly clay · 2ft to 5ft · book by 20 Aug',now:'₹1,200',was:'',badge:['turm','Festival is 27 Aug'],f:['hi','Fresh','31 bookings, 7 today'],letter:'G'},
+  {t:'Balloon Bazaar, KPHB',m:'Birthday decor at home · 2 hour setup',now:'₹3,500',was:'₹5,000',badge:['rose','Weekday rate'],f:['hi','Fresh','16 parents, 2 this week'],letter:'B'},
+  {t:'Shubham Function Hall, Miyapur',m:'250 seating · AC · parking for 40',now:'₹42,000/day',was:'₹55,000',badge:['plum','Weekday only'],f:['md','Ageing','Last confirmed 5 weeks ago'],letter:'S'},
+  {t:'Gift pool: 60th birthday',m:'What 40 neighbours actually gave, by budget',now:'',was:'',badge:['leaf','Updated weekly'],f:['hi','Fresh','40 contributing households'],letter:'♦'}]},
+{id:'learn',name:'Learn & Grow',tint:'var(--c-learn)',short:'Courses, careers, hobbies, entrepreneurship',count:'560 listings',sub:'With what happened to past students, reported by them',
+ chips:['All','School tuition','Skills','Careers','Hobbies','Business'],module:'outcome',
+ items:[
+  {t:'Vidya Tuitions, KPHB',m:'Class 8 to 10 · maths and science · batch of 12',now:'₹2,800/mo',was:'',badge:['leaf','9 of 11 improved a grade'],f:['hi','Fresh','11 parents over 2 years'],letter:'V'},
+  {t:'AWS Solutions Architect, weekends',m:'Ameerpet · 10 weekends · exam voucher included',now:'₹18,000',was:'₹25,000',badge:['plum','6 of 9 cleared the exam'],f:['hi','Fresh','9 past students reported'],letter:'A'},
+  {t:'Carnatic vocal, Smt Padmaja',m:'Kukatpally · weekends · beginner to grade 4',now:'₹1,500/mo',was:'',badge:['turm','Waitlist of 6'],f:['md','Ageing','Last confirmed 5 weeks ago'],letter:'C'},
+  {t:'Home business licensing clinic',m:'Free · FSSAI, Udyam and GST for kitchen businesses',now:'Free',was:'',badge:['leaf','Every 2nd Saturday'],f:['hi','Fresh','14 attended and registered'],letter:'H'},
+  {t:'Spoken English, Miyapur',m:'Evening batch · 3 months · small group',now:'₹4,500',was:'₹6,000',badge:['turm','Refund if you miss under 4'],f:['md','Ageing','Last confirmed 3 weeks ago'],letter:'S'}]},
+{id:'convenience',name:'Convenience',tint:'var(--c-convenience)',short:'Doorstep services, pickup and drop, bookings, deliveries',count:'910 listings',sub:'With whether they actually turned up inside the slot',
+ chips:['All','Doorstep','Pickup & drop','Bookings','Deliveries','Documents'],module:'slots',
+ items:[
+  {t:'Speedy doorstep bike service',m:'Servicing at your building · 90 minutes',now:'₹899',was:'₹1,300',badge:['leaf','On time, 9 of 10'],f:['hi','Fresh','24 confirmations, 3 today'],letter:'S'},
+  {t:'Anna Errands, Kukatpally',m:'Bank, courier, government office queues',now:'₹200/errand',was:'',badge:['turm','Same-day'],f:['hi','Fresh','41 households this month'],letter:'A'},
+  {t:'Medicine delivery, KPHB',m:'Under 45 minutes · prescription on WhatsApp',now:'Free above ₹500',was:'',badge:['leaf','Open 24 hours'],f:['hi','Fresh','33 confirmations today'],letter:'M'},
+  {t:'Aadhaar and passport help desk',m:'KPHB · appointment booking and document check',now:'₹300',was:'',badge:['plum','Walk-in Tue and Thu'],f:['md','Ageing','Last confirmed 2 weeks ago'],letter:'D'},
+  {t:'Gas cylinder same-day, Miyapur',m:'Booking plus delivery within 6 hours',now:'₹40 extra',was:'',badge:['leaf','On time, 18 of 20'],f:['md','Ageing','Last confirmed 3 weeks ago'],letter:'G'}]}
+];
+
+const CITIES=[{n:'Hyderabad',s:'Telangana',c:'2.1L tips'},{n:'Bengaluru',s:'Karnataka',c:'2.6L tips'},
+{n:'Chennai',s:'Tamil Nadu',c:'1.9L tips'},{n:'Mumbai',s:'Maharashtra',c:'3.0L tips'},
+{n:'Delhi NCR',s:'Delhi',c:'2.8L tips'},{n:'Pune',s:'Maharashtra',c:'1.4L tips'},
+{n:'Visakhapatnam',s:'Andhra Pradesh',c:'64k tips'},{n:'Vijayawada',s:'Andhra Pradesh',c:'51k tips'},
+{n:'Kolkata',s:'West Bengal',c:'1.2L tips'},{n:'Ahmedabad',s:'Gujarat',c:'88k tips'},
+{n:'Anantapur',s:'Andhra Pradesh',c:'19k tips'},{n:'Kochi',s:'Kerala',c:'59k tips'}];
+
+const RECENT=[
+{t:'Onions ₹28/kg at Rythu Bazar, Kukatpally',m:'Flat 402 · 12 minutes ago',tag:['leaf','Groceries']},
+{t:'Dr Anand\'s evening queue is only 4 people',m:'Flat 108 · 26 minutes ago',tag:['plum','Health']},
+{t:'Sridevi Blouse Works reopened order books',m:'Flat 301 · 41 minutes ago',tag:['turm','Stitching']}];
+
+const SAVED=[
+{t:'Sridevi Blouse Works',m:'Stitch & Style · price stable for 3 months',tag:['leaf','Watching'],letter:'S',tint:'var(--c-stitch)'},
+{t:'22K gold, Manepally Jewellers',m:'Buy · making charge 6% until Sunday',tag:['turm','Ends in 3d'],letter:'M',tint:'var(--c-buy)'},
+{t:'Sona Masoori group buy',m:'Save Money · you joined, 33 of 40 in',tag:['rose','Closes in 6h'],letter:'G',tint:'var(--c-save)'},
+{t:'Saroja, cook',m:'Maintain Home · one slot from 1 September',tag:['plum','Person'],letter:'S',tint:'var(--c-home)'},
+{t:'Ganesh Chaturthi, 27 August',m:'Celebrate · idol booking closes 20 Aug',tag:['turm','Plan'],letter:'G',tint:'var(--c-celebrate)'},
+{t:'Hyderabad to Tirupati fare',m:'Save Money · ₹2,180, lowest in 30 days',tag:['leaf','Watching'],letter:'✈',tint:'var(--c-convenience)'}];
+
+const FACTORS=[
+{n:'Recent confirmations',v:'34 of 40',w:85,d:'Six households confirmed ₹450 in the last twelve hours. Recency is weighted far above total count, so a busy tailor from 2024 does not sit above a busy tailor from this week.'},
+{n:'Confirmed from your circle',v:'11 of 34',w:70,d:'Eleven came from Kukatpally, three from your own building. A confirmation from your ring counts roughly twice a city-wide one.'},
+{n:'Bills attached',v:'9 tips',w:60,d:'Nine people photographed the bill. Evidence outranks memory, and it is the only thing that can settle a price dispute in the log.'},
+{n:'Promise kept',v:'38 of 41',w:92,d:'Thirty-eight said the fit was right the first time. Kept promises are tracked separately from satisfaction, because they are checkable.'},
+{n:'Disagreement',v:'2 tips',w:18,d:'Two people reported a different price. Disagreement lowers the score rather than being hidden, and both entries stay readable.'}];
+
+const BENCH=[
+['Maid, 1 hour daily','₹3,500 – ₹4,200','₹3,800','88 households'],
+['Cook, two meals','₹6,000 – ₹7,500','₹6,600','54 households'],
+['Full-time live-out help','₹14,000 – ₹18,000','₹16,000','23 households'],
+['Plumber, one visit','₹300 – ₹450','₹350','126 households'],
+['Electrician, one visit','₹300 – ₹500','₹400','97 households'],
+['2BHK deep clean','₹3,000 – ₹4,000','₹3,400','31 households'],
+['Car cleaning, monthly','₹600 – ₹900','₹700','62 households'],
+['Ironing, per piece','₹8 – ₹12','₹10','71 households']];
+
+/* ---------- nav ---------- */
+let stack=['splash'], activeCat='buy', city={n:'Hyderabad',s:'Telangana'};
+function go(id,push=true){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
+  const el=document.getElementById('s-'+id);
+  if(el){el.classList.add('on');el.querySelectorAll('.scroll').forEach(s=>s.scrollTop=0);}
+  if(push&&stack[stack.length-1]!==id)stack.push(id);
+  const dark=['splash','city','home','cat','contribute','saved','profile','detail','ranking','circle','rates','safety'];
+  document.getElementById('sysbar').style.color=dark.includes(id)?'#fff':'var(--ink)';
+  syncRail(id==='cat'?'cat:'+activeCat:id);
+  syncTabs(id);
+}
+function goBack(){stack.pop();go(stack[stack.length-1]||'home',false);}
+
+function openCat(cid){
+  activeCat=cid;
+  const c=CATS.find(x=>x.id===cid);
+  document.getElementById('cat-title').textContent=c.name;
+  document.getElementById('cat-sub').textContent=c.sub;
+  document.getElementById('cat-top').style.background=`linear-gradient(150deg, ${c.tint}, var(--plum))`;
+  document.getElementById('cat-chips').innerHTML=c.chips.map((ch,i)=>`<button class="chip ${i===0?'on':''}" onclick="pickChip(this)">${ch}</button>`).join('');
+  document.getElementById('cat-body').innerHTML=catBody(c);
+  go('cat');
+}
+function pickChip(el){el.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));el.classList.add('on');}
+function setRing(el,i){el.parentElement.querySelectorAll('.ring').forEach(r=>r.classList.remove('on'));el.classList.add('on');
+  toast(['Showing 34 homes in your building','Showing all of Kukatpally','Showing all of Hyderabad'][i]);}
+function pickSlot(el){el.parentElement.querySelectorAll('.slot').forEach(s=>{if(!s.classList.contains('off'))s.classList.remove('on');});el.classList.add('on');}
+function tog(el){el.classList.toggle('on');}
+
+const esc=s=>s.replace(/'/g,"\\'");
+function itemHTML(it,tint,cid){
+  const [k,label]=it.badge, [fk,fl,fd]=it.f;
+  return `<button class="item" onclick="openDetail('${cid}','${esc(it.t)}')">
+    <span class="thumb" style="background:${tint}">${it.letter}</span>
+    <span class="bd"><span class="t">${it.t}</span><p class="m">${it.m}</p>
+      <span class="pr">${it.now?`<span class="now">${it.now}</span>`:''}${it.was?`<span class="was">${it.was}</span>`:''}<span class="pill ${k}">${label}</span></span>
+      <span class="foot"><span class="fresh ${fk}" style="margin:0;"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span><span><b>${fl}</b> · ${fd}</span></span></span>
+    </span></button>`;
+}
+
+function catBody(c){
+  let h='';
+  if(c.module==='rates') h=`<div class="ratestrip">
+    <div class="rate"><div class="lbl">Gold 22K · 10g</div><div class="val">₹71,480</div><div class="dlt down">▼ ₹340</div></div>
+    <div class="rate"><div class="lbl">Gold 24K · 10g</div><div class="val">₹77,980</div><div class="dlt down">▼ ₹370</div></div>
+    <div class="rate"><div class="lbl">Silver · 1kg</div><div class="val">₹96,200</div><div class="dlt up">▲ ₹800</div></div>
+    <div class="rate"><div class="lbl">Silver · 10g</div><div class="val">₹962</div><div class="dlt up">▲ ₹8</div></div></div>
+    <div class="fresh hi" style="margin:10px 2px 0;"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span><span><b>Fresh</b> · Confirmed at 9 shops this morning. Excludes GST and making charges.</span></div><div class="gap-l"></div>`;
+  if(c.module==='slots') h=`<p class="eyebrow">Free today, near Kukatpally</p><div class="slots">
+    <button class="slot off"><div class="h">10:00</div><div class="s">Full</div></button>
+    <button class="slot on" onclick="pickSlot(this)"><div class="h">12:30</div><div class="s">3 open</div></button>
+    <button class="slot" onclick="pickSlot(this)"><div class="h">14:00</div><div class="s">5 open</div></button>
+    <button class="slot" onclick="pickSlot(this)"><div class="h">16:30</div><div class="s">2 open</div></button>
+    <button class="slot off"><div class="h">18:00</div><div class="s">Full</div></button>
+    <button class="slot" onclick="pickSlot(this)"><div class="h">19:30</div><div class="s">6 open</div></button></div><div class="gap-l"></div>`;
+  if(c.module==='alert') h=`<div class="alertbox">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C98307" stroke-width="2.2" stroke-linecap="round" style="flex:none;"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+    <p>${c.alert}</p></div><div class="gap-l"></div>`;
+  if(c.module==='rateguide') h=`<button class="card" style="padding:14px;width:100%;text-align:left;font-family:var(--ff-body);cursor:pointer;border:1px solid var(--line);" onclick="go('rates')">
+    <div class="spread" style="margin-bottom:10px;"><p class="eyebrow" style="margin:0;">What Kukatpally actually pays</p><span class="pill leaf">Nobody else has this</span></div>
+    ${BENCH.slice(0,4).map(([a,b])=>`<div class="spread" style="padding:7px 0;border-bottom:1px solid var(--line);">
+      <span style="font-size:13px;font-weight:600;">${a}</span><span class="mono" style="font-size:12.5px;">${b}</span></div>`).join('')}
+    <span style="display:block;margin-top:11px;font-size:12px;color:var(--plum);font-weight:700;">Open the full rate card →</span></button><div class="gap-l"></div>`;
+  if(c.module==='trust') h=`<div class="alertbox" style="background:#E4F3EC;border-color:#B9DFCC;">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0F7A4F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M12 3l7 3v6c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6l7-3Z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg>
+    <p style="color:#0B5638;">Each person here names which documents a neighbour personally saw. <b>NariMitra does not run the check itself and will not claim to.</b> Verify before you hire into your home.</p></div><div class="gap-l"></div>`;
+  if(c.module==='wait') h=`<div class="card" style="padding:14px;">
+    <div class="spread" style="margin-bottom:11px;"><p class="eyebrow" style="margin:0;">Queue right now</p><span class="pill rose">Live</span></div>
+    ${[['Dr Anand Rao, Kukatpally','4 waiting','~22 min','leaf'],['Vijaya Diagnostics, KPHB','11 waiting','~50 min','turm'],['Apollo Clinic, Miyapur','19 waiting','~80 min','rose']]
+      .map(([a,b,c2,k])=>`<div class="spread" style="padding:8px 0;border-bottom:1px solid var(--line);">
+        <span style="font-size:13px;font-weight:600;">${a}<br><span style="font-size:11px;color:var(--mute);font-weight:500;">${b}</span></span><span class="pill ${k}">${c2}</span></div>`).join('')}
+    <p style="margin:11px 0 0;font-size:11.5px;color:var(--mute);">Reported by patients sitting in the waiting room.</p></div><div class="gap-l"></div>`;
+  if(c.module==='groupbuy') h=`<div class="groupbuy"><div class="in">
+    <span class="pill turm">Started by a neighbour, closes in 6h</span>
+    <h3 style="margin-top:10px;">Sona Masoori, 26kg bag</h3>
+    <p>Mill rate unlocks at 40 households. No supplier set this up. Flat 402 did.</p>
+    <div class="spread" style="margin-top:14px;"><span class="mono" style="font-size:23px;font-weight:500;">₹1,285</span><span style="font-size:12px;color:#D5DAF6;">₹325 below retail</span></div>
+    <div class="bar"><i style="width:82.5%"></i></div>
+    <div class="spread"><div class="faces"><span>R</span><span>M</span><span>S</span><span>K</span><span class="n">+29</span></div>
+    <button class="btn primary" style="padding:9px 16px;font-size:13px;" onclick="toast('You are in. 34 of 40 joined.')">Join</button></div>
+  </div></div><div class="gap-l"></div>`;
+  if(c.module==='festival') h=`<div class="card" style="padding:14px;">
+    <div class="spread" style="margin-bottom:12px;"><p class="eyebrow" style="margin:0;">Booking windows closing</p><span class="pill turm">Book early</span></div>
+    ${[['Ganesh Chaturthi','27 Aug','Idols close 20 Aug · halls already tight'],['Bathukamma','30 Sep','Flowers, sarees, function halls'],['Diwali','20 Oct','Sweets, lights, gold buying']]
+      .map(([a,b,c3])=>`<div class="spread" style="padding:9px 0;border-bottom:1px solid var(--line);">
+        <span style="font-size:13px;font-weight:600;">${a}<br><span style="font-size:11px;color:var(--mute);font-weight:500;">${c3}</span></span>
+        <span class="mono" style="font-size:12.5px;color:var(--plum-2);">${b}</span></div>`).join('')}
+    <p style="margin:11px 0 0;font-size:11.5px;color:var(--mute);">Hosts report the window so you do not find out a week late.</p></div><div class="gap-l"></div>`;
+  if(c.module==='outcome') h=`<div class="alertbox" style="background:#E8EBF9;border-color:#C9CFF3;">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#3A44A0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M7 9.5V15c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V9.5"/></svg>
+    <p style="color:#4A1256;">Every class shows <b>what happened to past students</b>, reported by the parents and learners themselves. Institutes cannot edit these lines.</p></div><div class="gap-l"></div>`;
+
+  return h+`<div class="spread" style="margin-bottom:12px;">
+      <p class="eyebrow" style="margin:0;">${c.count} in ${city.n}</p>
+      <button class="chip" style="padding:5px 11px;font-size:11.5px;" onclick="go('ranking')">Sorted by pool score ⓘ</button></div>`
+    +c.items.map(it=>itemHTML(it,c.tint,c.id)).join('')
+    +`<div class="gap"></div><button class="btn dark full" onclick="go('contribute')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Know a better one? Add it</button>`;
+}
+
+function openDetail(cid,title){
+  const c=CATS.find(x=>x.id===cid), it=c.items.find(i=>i.t===title)||c.items[0];
+  document.getElementById('d-hero').style.background=`linear-gradient(150deg, ${c.tint}, var(--plum))`;
+  document.getElementById('d-title').textContent=it.t;
+  document.getElementById('d-meta').textContent=c.name+' · '+it.m;
+  document.getElementById('d-pill').textContent=it.badge[1];
+  document.getElementById('d-stats').innerHTML=
+    `<div class="stat"><div class="v">${it.now||'—'}</div><div class="l">Reported</div></div>
+     <div class="stat"><div class="v">86</div><div class="l">Pool score</div></div>
+     <div class="stat"><div class="v">3h</div><div class="l">Last confirmed</div></div>`;
+  document.getElementById('d-report').innerHTML=
+    `<div class="fresh ${it.f[0]}" style="margin:0 0 12px;"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span><span><b>${it.f[1]}</b> · ${it.f[2]}</span></div>
+     ${[['Fit was right the first time. No second trial needed.','Flat 402, this building · 2 days ago','leaf','In your building'],
+        ['Quoted 3 days, delivered in 4. She called to say so, which I appreciated.','KPHB · 5 days ago','plum','Kukatpally'],
+        ['Does not do padded cups. Ask before you leave the material.','Miyapur · 1 week ago','ghost','Hyderabad']]
+       .map(([q,w,k,r])=>`<div style="padding:11px 0;border-top:1px solid var(--line);">
+         <p style="margin:0;font-size:13px;line-height:1.55;">${q}</p>
+         <div class="spread" style="margin-top:6px;"><span style="font-size:11px;color:var(--mute);">${w}</span><span class="pill ${k}">${r}</span></div></div>`).join('')}`;
+  document.getElementById('d-timeline').innerHTML=
+    [['₹450 today','Confirmed by 6 households in the last twelve hours'],
+     ['₹450 in June','Held three months with no festival mark-up'],
+     ['₹400 in March','Raised after material cost went up, announced in advance']]
+    .map(([w,x])=>`<div class="tl"><p class="w">${w}</p><p class="x">${x}</p></div>`).join('');
+  go('detail');
+}
+
+function pickCity(n,s){
+  city={n,s};
+  document.getElementById('homecity').textContent=n;
+  document.getElementById('profcity').textContent='Prashanthi Heights · Kukatpally · '+n;
+  document.querySelectorAll('#citygrid .city').forEach(b=>b.classList.toggle('on',b.dataset.n===n));
+  go('home');
+}
+let tt;
+function toast(m){const t=document.getElementById('toast');document.getElementById('toasttext').textContent=m;
+  t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2400);}
+function submitTip(){toast('Added. Two neighbours will confirm before it goes live.');setTimeout(goBack,900);}
+
+/* ---------- render ---------- */
+document.getElementById('citygrid').innerHTML=CITIES.map(c=>
+  `<button class="city ${c.n==='Hyderabad'?'on':''}" data-n="${c.n}" onclick="pickCity('${c.n}','${c.s}')">
+   <span class="nm">${c.n}</span><span class="st">${c.s}</span><span class="ct">${c.c}</span></button>`).join('');
+document.getElementById('catgrid').innerHTML=CATS.map(c=>
+  `<button class="cat" style="--tint:${c.tint}" onclick="openCat('${c.id}')">
+   <span class="ico">${G(glyph[c.id])}</span><span class="nm">${c.name}</span>
+   <span class="ds">${c.short}</span><span class="ct">${c.count}</span></button>`).join('');
+document.getElementById('recent').innerHTML=RECENT.map(r=>
+  `<div class="card" style="padding:12px 13px;margin-bottom:9px;"><div class="spread" style="align-items:flex-start;">
+   <div><p style="margin:0;font-size:13.5px;font-weight:600;line-height:1.35;">${r.t}</p>
+   <p style="margin:4px 0 0;font-size:11px;color:var(--mute);">${r.m}</p></div>
+   <span class="pill ${r.tag[0]}">${r.tag[1]}</span></div></div>`).join('');
+document.getElementById('savedlist').innerHTML=SAVED.map(s=>
+  `<div class="item" style="cursor:default;"><span class="thumb" style="background:${s.tint}">${s.letter}</span>
+   <span class="bd"><span class="t">${s.t}</span><p class="m">${s.m}</p>
+   <span class="pr"><span class="pill ${s.tag[0]}">${s.tag[1]}</span></span></span></div>`).join('');
+document.getElementById('factors').innerHTML=FACTORS.map(f=>
+  `<div class="factor"><div class="fh"><span class="fn">${f.n}</span><span class="fv">${f.v}</span></div>
+   <p class="fd">${f.d}</p><div class="mini"><i style="width:${f.w}%"></i></div></div>`).join('');
+document.getElementById('ratebench').innerHTML=BENCH.map(([a,b,c,n])=>
+  `<div style="padding:11px 0;border-bottom:1px solid var(--line);">
+    <div class="spread"><span style="font-size:13.5px;font-weight:700;">${a}</span><span class="mono" style="font-size:13px;">${b}</span></div>
+    <div class="spread" style="margin-top:4px;"><span style="font-size:11px;color:var(--mute);">From ${n}</span>
+    <span style="font-size:11px;color:var(--mute);">Median <b class="mono" style="color:var(--plum-2);">${c}</b></span></div></div>`).join('');
+document.getElementById('tiptype').innerHTML=
+  [['A price I paid',1],['A person I hired',0],['An offer running now',0],['A queue or wait time',0]]
+  .map(([t,on])=>`<button class="pick ${on?'on':''}" onclick="pickTip(this)">
+   <span style="width:15px;height:15px;border-radius:99px;border:2px solid currentColor;display:grid;place-items:center;">
+   <span style="width:7px;height:7px;border-radius:99px;background:currentColor;opacity:${on?1:0};"></span></span>${t}</button>`).join('');
+function pickTip(el){el.parentElement.querySelectorAll('.pick').forEach(p=>{p.classList.remove('on');p.querySelector('span span').style.opacity=0;});
+  el.classList.add('on');el.querySelector('span span').style.opacity=1;}
+
+const TABS=[
+{id:'home',l:'Home',g:'<path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/>'},
+{id:'circle',l:'Circle',g:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>'},
+{id:'contribute',l:'Add',mid:true,g:'<path d="M12 5v14M5 12h14"/>'},
+{id:'saved',l:'Your list',g:'<path d="M6 3h12v18l-6-4.5L6 21V3Z"/>'},
+{id:'profile',l:'You',g:'<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/>'}];
+function tabHTML(a){return TABS.map(t=>{
+  const on=t.id===a?'on':'';
+  const inner=t.mid?`<span class="bub">${G(t.g)}</span><span>${t.l}</span>`:`${G(t.g)}<span>${t.l}</span>`;
+  return `<button class="tab ${t.mid?'mid':''} ${on}" onclick="go('${t.id}')">${inner}</button>`;}).join('');}
+function syncTabs(id){['tabbar','tabbar2','tabbar3','tabbar4','tabbar5'].forEach(b=>{
+  const el=document.getElementById(b); if(el) el.innerHTML=tabHTML(id);});}
+
+const RAIL=[
+{g:'Getting in'},
+{k:'splash',l:'Launch',f:()=>go('splash')},
+{k:'city',l:'Choose city',f:()=>go('city')},
+{k:'home',l:'Home',f:()=>go('home')},
+{g:'The ten areas'},
+...CATS.map(c=>({k:'cat:'+c.id,l:c.name,f:()=>openCat(c.id)})),
+{g:'What the others do not have'},
+{k:'detail',l:'Listing detail',f:()=>openDetail('stitch','Sridevi Blouse Works')},
+{k:'ranking',l:'Why this is first',n:1,f:()=>go('ranking')},
+{k:'circle',l:'Your circle',n:1,f:()=>go('circle')},
+{k:'rates',l:'The going rate',n:1,f:()=>go('rates')},
+{k:'safety',l:'Safety and privacy',n:1,f:()=>go('safety')},
+{g:'Yours'},
+{k:'contribute',l:'Add to the pool',f:()=>go('contribute')},
+{k:'saved',l:'Your list',f:()=>go('saved')},
+{k:'profile',l:'Your profile',f:()=>go('profile')}];
+const rail=document.getElementById('rail');
+rail.innerHTML='<h2>Screens</h2>';
+let num=0;
+RAIL.forEach(r=>{
+  if(r.g){rail.insertAdjacentHTML('beforeend',`<div class="grp">${r.g}</div>`);return;}
+  num++;
+  const b=document.createElement('button');
+  b.dataset.k=r.k;
+  b.innerHTML=`<span class="n">${String(num).padStart(2,'0')}</span><span>${r.l}</span>${r.n?'<span class="new">NEW</span>':''}`;
+  b.onclick=r.f;
+  rail.appendChild(b);
+});
+function syncRail(k){rail.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));}
+
+openCat('buy');
+go('splash',false);
+stack=['splash'];
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+build/
+.kotlin/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+captures/
+.navigation/
+
+# Local machine config (SDK path etc.)
+local.properties
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Keystores are normally private; the NariMitra prototype keystore is
+# deliberately committed so local and CI builds share one signature.
+*.jks
+*.keystore
+!narimitra-android/keystore/narimitra.jks

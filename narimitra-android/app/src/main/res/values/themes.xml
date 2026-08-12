@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.NariMitra" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/narimitra_navy</item>
+        <!-- Applied on Android 8–14; Android 15+ is edge-to-edge and the
+             activity paints the bar areas navy itself. -->
+        <item name="android:statusBarColor">@color/narimitra_navy</item>
+        <item name="android:navigationBarColor">@color/narimitra_navy</item>
+    </style>
+</resources>
